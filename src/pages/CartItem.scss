@@ -1,0 +1,14 @@
+.cartitem-main-container{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr ;
+    width: 60%;
+}
+
+.cartitem-item-image{
+    width: 200px;
+}
+
+.item-quantity-button{
+    background-color: transparent;
+    border: 1px solid #B8263D;
+}

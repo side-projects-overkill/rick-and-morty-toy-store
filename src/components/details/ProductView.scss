@@ -1,0 +1,15 @@
+.prodcutinfo-main-container{
+    display: grid;;
+    width: 70%;
+    grid-template-columns: 1fr 1fr;
+}
+
+.prodcutinfo-left-container{
+    &>img{
+        width: 70%;
+    }
+}
+
+.prodcutinfo-right-container{
+    float: right;
+}
