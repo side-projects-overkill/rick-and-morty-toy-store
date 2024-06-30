@@ -3,13 +3,11 @@ import {
   Form,
   FormGroup,
   TextInput,
-  TextArea,
-  ActionGroup,
   Button,
   Flex,
   FlexItem,
 } from "@patternfly/react-core";
-import CreditCardImage from "../../assets/images/credit-card-image.png";
+// import CreditCardImage from "../../assets/images/credit-card-image.png";
 import ProgressBar from "../../components/progressbar/ProgressBar";
 import ConfirmedDetails from "./ConfirmedDetails"
 import CustomerInfo from "../../components/customerInfo/CustomerInfo";

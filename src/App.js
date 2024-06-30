@@ -3,7 +3,6 @@ import "./App.css";
 import {
   createBrowserRouter,
   RouterProvider,
-  Route,
 } from "react-router-dom";
 import { createRoot } from "react-dom/client";
 import Header from "./components/header/Header";
@@ -14,6 +13,10 @@ import PaymentPage from "./pages/PaymentPage/PaymentPage.jsx";
 import PaymentConfirmationPage from "./pages/PaymentConfirmationPage/PaymentConfirmationPage.jsx";
 
 const router = createBrowserRouter([
+  {
+    path: "/cart",
+    element: <h1>Cart</h1>
+  },
   {
     path: "/address",
     element: <AddressPage/>,
