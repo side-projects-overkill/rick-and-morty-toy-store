@@ -10,6 +10,10 @@
 
     .apply-coupon-heading {
       margin-left: 15px;
+      background-color: #fff;
+      border: none;
+      color: #0066cc;
+      padding: 0px;
     }
   }
 
@@ -35,6 +39,10 @@
 
         .add-coupon-text {
           color: #0066cc;
+          background-color: #fff;
+          border: none;
+          color: #0066cc;
+          padding: 0px;
         }
 
         .free-text {
@@ -52,12 +60,13 @@
     }
 
     .confirm-details-bottom-container {
-        margin-bottom: 10px;
+      margin-bottom: 10px;
       .details-bottom-heading {
         font-weight: 600;
 
         .details-bottom-span {
           color: #0066cc;
+          cursor: pointer;
         }
       }
     }

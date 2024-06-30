@@ -1,14 +1,30 @@
 import "./PriceDetails.scss";
 import React from "react";
 import { Button } from "@patternfly/react-core";
+import { Link } from "react-router-dom";
 import ApplyCoupon from "../../assets/icons/ApplyCoupon";
 
+
 function PriceDetails({btnvalue}) {
+
+  const getRoute = (btnvalue) => {
+    switch(btnvalue){
+      case "checkout":
+        return "/personalize-your-cake";
+      case "payment":
+        return "/payment";
+      default:
+        return "";
+    }
+  }
+
+  const route = getRoute(btnvalue);
+
   return (
     <div className="price-details-main-container">
       <div className="price-detials-apply-coupon-contianer">
         <ApplyCoupon />
-        <a className="apply-coupon-heading">Apply coupon</a>
+        <button className="apply-coupon-heading">Apply coupon</button>
       </div>
       <div className="price-details-info-container">
         <p className="price-details-heading">Price Details</p>
@@ -21,7 +37,7 @@ function PriceDetails({btnvalue}) {
           </div>
           <div className="price-details-info">
             <p>Coupon</p>
-            <a className="add-coupon-text">Add Coupon</a>
+            <button className="add-coupon-text">Add Coupon</button>
           </div>
           <div className="price-details-info">
             <p>Order Total</p>
@@ -38,9 +54,12 @@ function PriceDetails({btnvalue}) {
           <p>Total Amount</p>
           <p>Rs. 1,000</p>
         </div>
-        <Button variant="primary" ouiaId="Primary" className="checkout-btn">
-          Proceed to {btnvalue}
-        </Button>
+        <Link to={route}>
+          <Button variant="primary" ouiaId="Primary" className="checkout-btn">
+            Proceed to {btnvalue}
+          </Button>
+        </Link>
+        
       </div>
     </div>
   );

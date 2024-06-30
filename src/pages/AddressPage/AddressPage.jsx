@@ -10,7 +10,7 @@ import {
   Flex,
   FlexItem,
 } from "@patternfly/react-core";
-import { Formik, Field, ErrorMessage } from "formik";
+import { Formik} from "formik";
 import deliveryAddressSchema from "./DeliveryAddressSchema";
 import ProgressBar from "../../components/progressbar/ProgressBar";
 import PriceDetails from "../../components/priceDetails/PriceDetails";
@@ -277,9 +277,11 @@ function AddressPage() {
                   <Button variant="danger" type="submit" isDisabled={false}>
                     Save
                   </Button>
-                  <Button variant="secondary" isDanger>
-                    Cancel
-                  </Button>
+                  <Link to="/cart">
+                    <Button variant="secondary" isDanger>
+                      Cancel
+                    </Button>
+                  </Link>
                 </ActionGroup>
               </Form>
             )}

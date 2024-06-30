@@ -11,6 +11,10 @@
 
         .apply-coupon-heading{
             margin-left: 15px;
+            background-color: #fff;
+            border: none;
+            color: #0066CC;
+            padding: 0px;
         }
     }
 
@@ -38,6 +42,10 @@
 
                 .add-coupon-text{
                     color: #0066CC;
+                    background-color: #fff;
+                    border: none;
+                    color: #0066CC;
+                    padding: 0px;
                 }
 
                 .free-text{
@@ -57,6 +65,7 @@
         .checkout-btn{
             align-self: center;
             background-color: #B8263D;
+            margin-left: 11px;
             width: 380px;
             height: 50px;
             font-weight: 600;

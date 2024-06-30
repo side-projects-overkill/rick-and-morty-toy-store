@@ -1,14 +1,13 @@
 import "./ConfirmedDetails.scss";
 import React from "react";
 import ApplyCoupon from "../../assets/icons/ApplyCoupon";
-import { Button } from "@patternfly/react-core";
 
 function ConfirmedDetails() {
   return (
     <div className="confirm-details-main-container">
       <div className="confirm-detials-apply-coupon-contianer">
         <ApplyCoupon />
-        <a className="apply-coupon-heading">Apply coupon</a>
+        <button className="apply-coupon-heading" >Apply coupon</button>
       </div>
       <div className="confirm-details-info-container">
         <p className="confirm-details-heading">Price Details</p>
@@ -21,7 +20,7 @@ function ConfirmedDetails() {
           </div>
           <div className="confirm-details-info">
             <p>Coupon</p>
-            <a className="add-coupon-text">Add Coupon</a>
+            <button className="add-coupon-text">Add Coupon</button>
           </div>
           <div className="confirm-details-info">
             <p>Order Total</p>
@@ -39,7 +38,7 @@ function ConfirmedDetails() {
           <p>Rs. 1,000</p>
         </div>
         <div className="confirm-details-bottom-container">
-          <h1 className="details-bottom-heading">SENDER DETAILS<span className="details-bottom-span"><a>(Change)</a>  </span></h1>
+          <h1 className="details-bottom-heading">SENDER DETAILS <span className="details-bottom-span">(Change)</span></h1>
           <p>
             Sarah
             
@@ -49,7 +48,7 @@ function ConfirmedDetails() {
           </p>
         </div>
         <div className="confirm-details-bottom-container">
-          <h1 className="details-bottom-heading">DELIVERY TIME<span className="details-bottom-span"> <a>(Change)</a> </span></h1>
+          <h1 className="details-bottom-heading">DELIVERY TIME <span className="details-bottom-span"> (Change)   </span></h1>
           <p>
             22/09/2022 4:00PM
           </p>

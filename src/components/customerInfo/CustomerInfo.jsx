@@ -2,6 +2,7 @@ import React from "react";
 import { Radio } from "@patternfly/react-core";
 import { Button } from "@patternfly/react-core";
 import "./CustomerInfo.scss";
+import { Link } from "react-router-dom";
 
 function CustomerInfo() {
   return (
@@ -25,9 +26,12 @@ function CustomerInfo() {
           pariatur,
         </p>
         <p className="customer-phone-number">Ph no. : 1234567890</p>
-        <Button variant="secondary" size="sm" className="change-address-btn" isDanger>
-          Change Address
-        </Button>
+        <Link to="/address">
+          <Button variant="secondary" size="sm" className="change-address-btn" isDanger>
+            Change Address
+          </Button>
+        </Link>
+        
       </div>
     </div>
   );

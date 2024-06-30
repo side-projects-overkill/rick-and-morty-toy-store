@@ -14,9 +14,11 @@ import ProgressBar from "../../components/progressbar/ProgressBar";
 import ConfirmedDetails from "./ConfirmedDetails";
 import CustomerInfo from "../../components/customerInfo/CustomerInfo";
 import "./PaymentPage.scss";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function PaymentPage() {
+  const navigate = useNavigate();
+
   return (
     <div className="payment-main-container">
       <ProgressBar />
@@ -68,6 +70,7 @@ function PaymentPage() {
               onSubmit={(values, { setSubmitting }) => {
                 console.log(values);
                 setSubmitting(false);
+                navigate("/payment-confirm");
               }}
             >
               {({
@@ -154,7 +157,7 @@ function PaymentPage() {
                           {({ field }) => (
                             <TextInput
                               {...field}
-                              type="text"
+                              type="date"
                               id="expiry-date"
                               placeholder="Expiry Date"
                               validated={
@@ -210,16 +213,14 @@ function PaymentPage() {
                     </FlexItem>
                   </Flex>
                   <p>* Your card information will not be saved</p>
-                  <Link to="/payment-confirm">
-                    <Button
-                      type="submit"
-                      variant="primary"
-                      ouiaId="Primary"
-                      className="pay-btn"
-                    >
-                      Pay Now
-                    </Button>
-                  </Link>
+                  <Button
+                    type="submit"
+                    variant="primary"
+                    ouiaId="Primary"
+                    className="pay-btn"
+                  >
+                    Pay Now
+                  </Button>
                 </Form>
               )}
             </Formik>

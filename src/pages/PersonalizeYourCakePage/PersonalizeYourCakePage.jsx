@@ -17,7 +17,6 @@ import PriceDetails from "../../components/priceDetails/PriceDetails";
 import CustomerInfo from "../../components/customerInfo/CustomerInfo";
 import ActivePill from "../../components/activePill/ActivePill";
 import InactivePill from "../../components/inactivePill/InactivePill";
-import { Link } from "react-router-dom";
 
 function PersonalizeYourCakePage() {
   return (
@@ -108,7 +107,7 @@ function PersonalizeYourCakePage() {
         </div>
         <div className="personalize-bottom-right-container">
           <CustomerInfo />
-          <PriceDetails btnvalue="Payment"/>
+          <PriceDetails btnvalue="payment"/>
         </div>
       </div>
     </div>
