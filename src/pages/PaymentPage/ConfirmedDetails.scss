@@ -1,54 +1,65 @@
-.price-details-main-container{
+.confirm-details-main-container {
+  .confirm-detials-apply-coupon-contianer {
+    margin-bottom: 20px;
+    height: auto;
+    width: 442px;
+    padding: 9px 0px 9px 19px;
+    display: flex;
+    align-items: center;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
-    .price-detials-apply-coupon-contianer{
-        margin-bottom: 20px;
-        height: auto;
-        width: 442px;
-        padding: 9px 0px 9px 19px;
+    .apply-coupon-heading {
+      margin-left: 15px;
+    }
+  }
+
+  .confirm-details-info-container {
+    height: auto;
+    width: 442px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 20px;
+
+    .confirm-details-heading {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .confirm-details-sub-container {
+      margin-bottom: 23px;
+
+      .confirm-details-info {
         display: flex;
-        align-items: center;
-        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        justify-content: space-between;
+        margin-bottom: 5px;
 
-        .apply-coupon-heading{
-            margin-left: 15px;
+        .add-coupon-text {
+          color: #0066cc;
         }
+
+        .free-text {
+          color: #1c9305;
+        }
+      }
     }
 
-    .price-details-info-container{
-        height: auto;
-        width: 442px;
-        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-        padding: 20px;
-
-        .price-details-heading{
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 14px;
-        }
-
-        .price-details-sub-container{
-            margin-bottom: 23px;
-
-            .price-details-info{
-                display: flex;
-                justify-content: space-between;
-                margin-bottom: 5px;
-
-                .add-coupon-text{
-                    color: #0066CC;
-                }
-
-                .free-text{
-                    color: #1C9305;
-                }
-            }
-        }
-
-        .price-details-total{
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 30px;
-        }
-
+    .confirm-details-total {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-weight: 600;
+      font-size: 18px;
     }
+
+    .confirm-details-bottom-container {
+        margin-bottom: 10px;
+      .details-bottom-heading {
+        font-weight: 600;
+
+        .details-bottom-span {
+          color: #0066cc;
+        }
+      }
+    }
+  }
 }
