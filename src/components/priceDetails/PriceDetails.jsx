@@ -3,7 +3,7 @@ import React from "react";
 import { Button } from "@patternfly/react-core";
 import ApplyCoupon from "../../assets/icons/ApplyCoupon";
 
-function PriceDetails() {
+function PriceDetails({btnvalue}) {
   return (
     <div className="price-details-main-container">
       <div className="price-detials-apply-coupon-contianer">
@@ -39,7 +39,7 @@ function PriceDetails() {
           <p>Rs. 1,000</p>
         </div>
         <Button variant="primary" ouiaId="Primary" className="checkout-btn">
-          Proceed to Checkout
+          Proceed to {btnvalue}
         </Button>
       </div>
     </div>

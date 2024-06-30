@@ -77,7 +77,7 @@ function PaymentPage() {
                 />
               </FormGroup>
               <Flex>
-                <FlexItem>
+                <FlexItem >
                   <FormGroup fieldId="expiry-date">
                     <TextInput
                       type="text"
@@ -99,7 +99,7 @@ function PaymentPage() {
                   </FormGroup>
                 </FlexItem>
                 <div className="credit-card-image">
-                  <img src={CreditCardImage} alt="credit-card-image" />
+                  {/* <img src={CreditCardImage} alt="credit-card-image" /> */}
                 </div>
               </Flex>
               <p>* Your card information will not be saved</p>

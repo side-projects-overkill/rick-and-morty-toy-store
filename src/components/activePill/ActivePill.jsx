@@ -2,10 +2,10 @@ import React from 'react'
 import {Badge} from '@patternfly/react-core';
 import "./ActivePill.scss"
 
-function ActivePill() {
+function ActivePill({content}) {
   return (
     <Badge key={1} screenReaderText="Unread Messages" className='active-pill-container'>
-      Home
+      {content}
     </Badge>
   )
 }

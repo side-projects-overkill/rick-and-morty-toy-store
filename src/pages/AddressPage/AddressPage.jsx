@@ -10,6 +10,8 @@ import {
   Flex,
   FlexItem,
 } from "@patternfly/react-core";
+import { Formik, Field, ErrorMessage } from 'formik';
+import deliveryAddressSchema from "./DeliveryAddressSchema";
 import ProgressBar from "../../components/progressbar/ProgressBar";
 import PriceDetails from "../../components/priceDetails/PriceDetails";
 import { Link } from "react-router-dom";
@@ -23,86 +25,177 @@ function AddressPage() {
       <div className="add-address-bottom-container">
         <div className="add-address-bottom-left-container">
           <h1 className="add-address-heading">Add Delivery Address</h1>
-          <Form>
-            <FormGroup label="Recipient Name" fieldId="fier">
-              <TextInput type="text" id="recipient-name" name="recipientName" />
-            </FormGroup>
-            <FormGroup label="Recipient Address" fieldId="recipient-address">
-              <TextArea id="recipient-address" name="recipientAddress" />
-            </FormGroup>
-            <FormGroup label="Landmark" fieldId="recipient-landmark">
-              <TextInput
-                type="text"
-                id="recipient-landmark"
-                name="recipient-landmark"
-              />
-            </FormGroup>
-            <Flex>
-              <FlexItem>
-                <FormGroup label="Pincode" fieldId="recipient-pincode">
-                  <TextInput
-                    type="text"
-                    id="recipient-pincode"
-                    name="recipient-pincode"
+          <Formik 
+            initialValues={{
+              recipientName: "",
+              recipientAddress: "",
+              recipientLandmark: "",
+              recipientPincode: "",
+              recipientCity: "",
+              recipientMobile: "",
+              recipientAlternateMobile: ""
+            }}
+            validationSchema={deliveryAddressSchema}
+            onSubmit={(values, { setSubmitting }) => {
+              console.log(values);
+              setSubmitting(false);
+            }}
+          >
+            {({ handleSubmit, handleChange, handleBlur, values, touched, errors }) => (
+              <Form onSubmit={handleSubmit}>
+                <FormGroup 
+                  label="Recipient Name" 
+                  fieldId="recipient-name"
+                  helperTextInvalid={errors.recipientName && touched.recipientName && errors.recipientName}
+                  validated={errors.recipientName && touched.recipientName ? 'error' : 'default'}
+                >
+                  <TextInput 
+                    type="text" 
+                    id="recipient-name" 
+                    name="recipientName" 
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.recipientName}
+                    validated={errors.recipientName && touched.recipientName ? 'error' : 'default'}
                   />
                 </FormGroup>
-              </FlexItem>
-              <FlexItem>
-                <FormGroup label="City" fieldId="recipient-city">
-                  <TextInput
-                    type="text"
-                    id="recipient-city"
-                    name="recipient-city"
+
+
+                <FormGroup 
+                  label="Recipient Address" 
+                  fieldId="recipient-address"
+                  helperTextInvalid={errors.recipientAddress && touched.recipientAddress && errors.recipientAddress}
+                  validated={errors.recipientAddress && touched.recipientAddress ? 'error' : 'default'}
+                >
+                  <TextArea 
+                    id="recipient-address" 
+                    name="recipientAddress" 
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.recipientAddress}
+                    validated={errors.recipientAddress && touched.recipientAddress ? 'error' : 'default'}
                   />
                 </FormGroup>
-              </FlexItem>
-            </Flex>
-            <Flex>
-              <FlexItem>
-                <FormGroup
-                  label="Mobile Number"
-                  fieldId="recipient-mobile-number"
+
+
+                <FormGroup 
+                  label="Landmark" 
+                  fieldId="recipient-landmark"
+                  helperTextInvalid={errors.recipientLandmark && touched.recipientLandmark && errors.recipientLandmark}
+                  validated={errors.recipientLandmark && touched.recipientLandmark ? 'error' : 'default'}
                 >
                   <TextInput
-                    type="tel"
-                    id="recipient-mobile-number"
-                    name="recipient-mobile-number"
+                    type="text"
+                    id="recipient-landmark"
+                    name="recipientLandmark"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.recipientLandmark}
+                    validated={errors.recipientLandmark && touched.recipientLandmark ? 'error' : 'default'}
                   />
                 </FormGroup>
-              </FlexItem>
-              <FlexItem>
-                <FormGroup
-                  label="Alternate Mobile Number"
-                  fieldId="alternate-mobile-number"
-                >
-                  <TextInput
-                    type="tel"
-                    id="alternate-mobile-number"
-                    name="alternateMobileNumber"
-                  />
+
+
+                <Flex>
+                  <FlexItem flex={{ default: "flex_1" }}>
+                    <FormGroup 
+                      label="Pincode" 
+                      fieldId="recipient-pincode"
+                      helperTextInvalid={errors.recipientPincode && touched.recipientPincode && errors.recipientPincode}
+                      validated={errors.recipientPincode && touched.recipientPincode ? 'error' : 'default'}
+                    >
+                      <TextInput
+                        type="tel"
+                        id="recipient-pincode"
+                        name="recipientPincode"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.recipientPincode}
+                        validated={errors.recipientPincode && touched.recipientPincode ? 'error' : 'default'}
+                      />
+                    </FormGroup>
+                  </FlexItem>
+                  <FlexItem flex={{ default: "flex_1" }}>
+                    <FormGroup 
+                      label="City" 
+                      fieldId="recipient-city"
+                      helperTextInvalid={errors.recipientCity && touched.recipientCity && errors.recipientCity}
+                      validated={errors.recipientCity && touched.recipientCity ? 'error' : 'default'}
+                    >
+                      <TextInput
+                        type="text"
+                        id="recipient-city"
+                        name="recipientCity"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.recipientCity}
+                        validated={errors.recipientCity && touched.recipientCity ? 'error' : 'default'}
+                      />
+                    </FormGroup>
+                  </FlexItem>
+                </Flex>
+
+
+                <Flex>
+                  <FlexItem flex={{ default: "flex_1" }}>
+                    <FormGroup
+                      label="Mobile Number"
+                      fieldId="recipient-mobile-number"
+                      helperTextInvalid={errors.recipientMobile && touched.recipientMobile && errors.recipientMobile}
+                      validated={errors.recipientMobile && touched.recipientMobile ? 'error' : 'default'}
+                    >
+                      <TextInput
+                        type="tel"
+                        id="recipient-mobile-number"
+                        name="recipientMobile"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.recipientMobile}
+                        validated={errors.recipientMobile && touched.recipientMobile ? 'error' : 'default'}
+                      />
+                    </FormGroup>
+                  </FlexItem>
+                  <FlexItem flex={{ default: "flex_1" }}>
+                    <FormGroup
+                      label="Alternate Mobile Number"
+                      fieldId="alternate-mobile-number"
+                      helperTextInvalid={errors.recipientAlternateMobile && touched.recipientAlternateMobile && errors.recipientAlternateMobile}
+                      validated={errors.recipientAlternateMobile && touched.recipientAlternateMobile ? 'error' : 'default'}
+                    >
+                      <TextInput
+                        type="tel"
+                        id="alternate-mobile-number"
+                        name="recipientAlternateMobile"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.recipientAlternateMobile}
+                        validated={errors.recipientAlternateMobile && touched.recipientAlternateMobile ? 'error' : 'default'}
+                      />
+                    </FormGroup>
+                  </FlexItem>
+                </Flex>
+
+
+                <FormGroup label="Address Type" fieldId="address-type">
+                  <div className="address-type-container">
+                    <ActivePill content="Home" />
+                    <InactivePill content="Work" />
+                    <InactivePill content="Friends & Family" />
+                    <InactivePill content="Other" />
+                  </div>
                 </FormGroup>
-              </FlexItem>
-            </Flex>
 
-            <FormGroup label="Address Type" fieldId="fier">
-              <div className="address-type-container">
-                <ActivePill/>
-                <InactivePill/>
-                <InactivePill/>
-                <InactivePill/>
-              </div>
-            </FormGroup>
 
-            <ActionGroup>
-              <Button variant="danger">Save</Button>
-              <Button variant="secondary" isDanger>
-                Cancel
-              </Button>
-            </ActionGroup>
-          </Form>
+                <ActionGroup>
+                  <Button variant="danger" type="submit" isDisabled={false} >Save</Button>
+                  <Button variant="secondary" isDanger>Cancel</Button>
+                </ActionGroup>
+              </Form>
+            )}
+          </Formik>
         </div>
         <div className="add-address-bottom-right-container">
-            <PriceDetails />
+          <PriceDetails btnvalue="checkout"/>
           <Button variant="primary" ouiaId="Primary" className="shopping-btn">
             Continue Shopping
           </Button>

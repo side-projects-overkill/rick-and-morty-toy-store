@@ -10,11 +10,13 @@ import {
   FlexItem,
   TextInputGroup,
   TextInputGroupMain,
-  Checkbox
+  Checkbox,
 } from "@patternfly/react-core";
 import ProgressBar from "../../components/progressbar/ProgressBar";
 import PriceDetails from "../../components/priceDetails/PriceDetails";
 import CustomerInfo from "../../components/customerInfo/CustomerInfo";
+import ActivePill from "../../components/activePill/ActivePill";
+import InactivePill from "../../components/inactivePill/InactivePill";
 import { Link } from "react-router-dom";
 
 function PersonalizeYourCakePage() {
@@ -23,7 +25,7 @@ function PersonalizeYourCakePage() {
       <ProgressBar />
       <div className="personalize-bottom-container">
         <div className="personalize-bottom-left-container">
-          <h1 className="personalize-heading">Personailze your cake</h1>
+          <h1 className="personalize-heading">Personailze your Product</h1>
           <Form>
             <FormGroup
               label="Delivery Date & Time"
@@ -32,22 +34,21 @@ function PersonalizeYourCakePage() {
             >
               <TextInput
                 isRequired
-                type="text"
+                type="date"
                 id="date-time"
                 name="DateAndTime"
               />
             </FormGroup>
 
             <FormGroup label="Occasion" fieldId="fier">
-              <div>
-                
+              <div className="occasion-type">
+                <ActivePill content="Birthday"/>
+                <InactivePill content="Anniversary"/>
+                <InactivePill content="Other"/>
               </div>
             </FormGroup>
 
-            <FormGroup
-              label="Personal Message"
-              fieldId="personal-message"
-            >
+            <FormGroup label="Personal Message" fieldId="personal-message">
               <TextArea
                 isRequired
                 id="personal-message"
@@ -71,11 +72,8 @@ function PersonalizeYourCakePage() {
             </div>
 
             <Flex>
-              <FlexItem>
-                <FormGroup
-                  label="Name"
-                  fieldId="name"
-                >
+              <FlexItem flex={{ default: "flex_1" }}>
+                <FormGroup label="Name" fieldId="name">
                   <TextInputGroup isDisabled>
                     <TextInputGroupMain
                       value="Sarah"
@@ -86,14 +84,11 @@ function PersonalizeYourCakePage() {
                 </FormGroup>
               </FlexItem>
 
-              <FlexItem>
-              <FormGroup
-                  label="Phone Number"
-                  fieldId="phone-number"
-                >
+              <FlexItem flex={{ default: "flex_1" }}>
+                <FormGroup label="Phone Number" fieldId="phone-number">
                   <TextInputGroup isDisabled>
                     <TextInputGroupMain
-                      value="Sarah"
+                      value="1234567890"
                       type="text"
                       aria-label="Disabled text input group example input"
                     />
@@ -102,14 +97,18 @@ function PersonalizeYourCakePage() {
               </FlexItem>
             </Flex>
             <div className="keep-suprise-container">
-              <Checkbox id="standalone-check" name="standlone-check" aria-label="Standalone input" />
+              <Checkbox
+                id="standalone-check"
+                name="standlone-check"
+                aria-label="Standalone input"
+              />
               <p>Keep Surprise (Hide Sender Information from Recipient)</p>
             </div>
           </Form>
         </div>
         <div className="personalize-bottom-right-container">
           <CustomerInfo />
-            <PriceDetails />
+          <PriceDetails btnvalue="Payment"/>
         </div>
       </div>
     </div>

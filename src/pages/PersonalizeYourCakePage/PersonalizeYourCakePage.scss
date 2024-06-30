@@ -16,6 +16,12 @@
         height: auto;
         box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
+        .occasion-type{
+          display: flex;
+          width: 30%;
+          justify-content: space-evenly;
+        }
+
         #date-time{
           border: 2px solid #9F9F9F;
           border-radius: 7px;
