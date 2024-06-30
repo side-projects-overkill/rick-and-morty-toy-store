@@ -5,7 +5,7 @@ import React from "react";
 
 function PaymentConfirmationPage() {
   return (
-    <div>
+    <div className="order-comfirm-main-continaer">
       <div className="order-confirm-container">
       <h1 className="order-confirm-heading">Order Confirmation</h1>
       <p className="order-confirm-text">We know you can't wait to receive your order! </p>

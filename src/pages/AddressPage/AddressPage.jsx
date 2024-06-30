@@ -12,6 +12,9 @@ import {
 } from "@patternfly/react-core";
 import ProgressBar from "../../components/progressbar/ProgressBar";
 import PriceDetails from "../../components/priceDetails/PriceDetails";
+import { Link } from "react-router-dom";
+import ActivePill from "../../components/activePill/ActivePill";
+import InactivePill from "../../components/inactivePill/InactivePill";
 
 function AddressPage() {
   return (
@@ -21,33 +24,23 @@ function AddressPage() {
         <div className="add-address-bottom-left-container">
           <h1 className="add-address-heading">Add Delivery Address</h1>
           <Form>
-            <FormGroup
-              label="Recipient Name"
-              fieldId="fier"
-            >
-              <TextInput
-                type="text"
-                id="recipient-name"
-                name="recipientName"
-              />
+            <FormGroup label="Recipient Name" fieldId="fier">
+              <TextInput type="text" id="recipient-name" name="recipientName" />
             </FormGroup>
-            <FormGroup
-              label="Recipient Address"
-              fieldId="recipient-address"
-            >
-              <TextArea
-                id="recipient-address"
-                name="recipientAddress"
-              />
+            <FormGroup label="Recipient Address" fieldId="recipient-address">
+              <TextArea id="recipient-address" name="recipientAddress" />
             </FormGroup>
             <FormGroup label="Landmark" fieldId="recipient-landmark">
-              <TextInput  type="text" id="recipient-landmark" name="recipient-landmark" />
+              <TextInput
+                type="text"
+                id="recipient-landmark"
+                name="recipient-landmark"
+              />
             </FormGroup>
             <Flex>
               <FlexItem>
                 <FormGroup label="Pincode" fieldId="recipient-pincode">
                   <TextInput
-                  
                     type="text"
                     id="recipient-pincode"
                     name="recipient-pincode"
@@ -56,7 +49,11 @@ function AddressPage() {
               </FlexItem>
               <FlexItem>
                 <FormGroup label="City" fieldId="recipient-city">
-                  <TextInput type="text" id="recipient-city" name="recipient-city" />
+                  <TextInput
+                    type="text"
+                    id="recipient-city"
+                    name="recipient-city"
+                  />
                 </FormGroup>
               </FlexItem>
             </Flex>
@@ -64,11 +61,9 @@ function AddressPage() {
               <FlexItem>
                 <FormGroup
                   label="Mobile Number"
-                
                   fieldId="recipient-mobile-number"
                 >
                   <TextInput
-                  
                     type="tel"
                     id="recipient-mobile-number"
                     name="recipient-mobile-number"
@@ -88,14 +83,29 @@ function AddressPage() {
                 </FormGroup>
               </FlexItem>
             </Flex>
+
+            <FormGroup label="Address Type" fieldId="fier">
+              <div className="address-type-container">
+                <ActivePill/>
+                <InactivePill/>
+                <InactivePill/>
+                <InactivePill/>
+              </div>
+            </FormGroup>
+
             <ActionGroup>
-              <Button variant="primary">Save</Button>
-              <Button variant="secondary" isDanger>Cancel</Button>
+              <Button variant="danger">Save</Button>
+              <Button variant="secondary" isDanger>
+                Cancel
+              </Button>
             </ActionGroup>
           </Form>
         </div>
         <div className="add-address-bottom-right-container">
-          <PriceDetails />
+            <PriceDetails />
+          <Button variant="primary" ouiaId="Primary" className="shopping-btn">
+            Continue Shopping
+          </Button>
         </div>
       </div>
     </div>

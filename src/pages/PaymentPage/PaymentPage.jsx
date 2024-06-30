@@ -11,9 +11,10 @@ import {
 } from "@patternfly/react-core";
 import CreditCardImage from "../../assets/images/credit-card-image.png";
 import ProgressBar from "../../components/progressbar/ProgressBar";
-import PriceDetails from "../../components/priceDetails/PriceDetails";
+import ConfirmedDetails from "./ConfirmedDetails"
 import CustomerInfo from "../../components/customerInfo/CustomerInfo";
 import "./PaymentPage.scss";
+import { Link } from "react-router-dom";
 
 function PaymentPage() {
   return (
@@ -103,14 +104,16 @@ function PaymentPage() {
               </Flex>
               <p>* Your card information will not be saved</p>
             </Form>
-            <Button variant="primary" ouiaId="Primary" className="pay-btn">
-              Continue Shopping
-            </Button>
+            <Link to="/payment-confirm">
+              <Button variant="primary" ouiaId="Primary" className="pay-btn">
+                Pay Now
+              </Button>
+            </Link>
           </div>
         </div>
         <div className="payment-bottom-right-container">
           <CustomerInfo />
-          <PriceDetails />
+          <ConfirmedDetails/>
         </div>
       </div>
     </div>

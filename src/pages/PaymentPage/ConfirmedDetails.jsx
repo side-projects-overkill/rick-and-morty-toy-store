@@ -1,9 +1,9 @@
-import "./PriceDetails.scss";
+import "./PaymentPage.scss";
 import React from "react";
-import { Button } from "@patternfly/react-core";
 import ApplyCoupon from "../../assets/icons/ApplyCoupon";
+import { Button } from "@patternfly/react-core";
 
-function PriceDetails() {
+function ConfirmedDetails() {
   return (
     <div className="price-details-main-container">
       <div className="price-detials-apply-coupon-contianer">
@@ -38,12 +38,12 @@ function PriceDetails() {
           <p>Total Amount</p>
           <p>Rs. 1,000</p>
         </div>
-        <Button variant="primary" ouiaId="Primary" className="checkout-btn">
-          Proceed to Checkout
-        </Button>
+        <div className="">
+          <h1>asdf</h1>
+        </div>
       </div>
     </div>
   );
 }
 
-export default PriceDetails;
+export default ConfirmedDetails;

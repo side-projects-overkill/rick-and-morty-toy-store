@@ -15,6 +15,7 @@ import {
 import ProgressBar from "../../components/progressbar/ProgressBar";
 import PriceDetails from "../../components/priceDetails/PriceDetails";
 import CustomerInfo from "../../components/customerInfo/CustomerInfo";
+import { Link } from "react-router-dom";
 
 function PersonalizeYourCakePage() {
   return (
@@ -37,9 +38,11 @@ function PersonalizeYourCakePage() {
               />
             </FormGroup>
 
-            <div className="occasion-container">
-              <h1>Occasion</h1>
-            </div>
+            <FormGroup label="Occasion" fieldId="fier">
+              <div>
+                
+              </div>
+            </FormGroup>
 
             <FormGroup
               label="Personal Message"
@@ -106,7 +109,7 @@ function PersonalizeYourCakePage() {
         </div>
         <div className="personalize-bottom-right-container">
           <CustomerInfo />
-          <PriceDetails />
+            <PriceDetails />
         </div>
       </div>
     </div>

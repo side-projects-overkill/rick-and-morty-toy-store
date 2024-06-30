@@ -9,46 +9,52 @@
     margin-top: 40px;
     width: 80%;
 
-
     .add-address-bottom-left-container {
       padding: 30px;
       width: 65%;
       height: auto;
       box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
-      #recipient-name{
-        border: 2px solid #9F9F9F;
+      #recipient-name {
+        border: 2px solid #9f9f9f;
         border-radius: 7px;
+        border-bottom: none;
       }
 
-      #recipient-address{
-        border: 2px solid #9F9F9F;
+      #recipient-address {
+        border: 2px solid #9f9f9f;
         border-radius: 7px;
+        border-bottom: none;
       }
 
-      #recipient-landmark{
-        border: 2px solid #9F9F9F;
+      #recipient-landmark {
+        border: 2px solid #9f9f9f;
         border-radius: 7px;
+        border-bottom: none;
       }
 
-      #recipient-pincode{
-        border: 2px solid #9F9F9F;
+      #recipient-pincode {
+        border: 2px solid #9f9f9f;
         border-radius: 7px;
+        border-bottom: none;
       }
 
-      #recipient-city{
-        border: 2px solid #9F9F9F;
+      #recipient-city {
+        border: 2px solid #9f9f9f;
         border-radius: 7px;
+        border-bottom: none;
       }
 
-      #recipient-mobile-number{
-        border: 2px solid #9F9F9F;
+      #recipient-mobile-number {
+        border: 2px solid #9f9f9f;
         border-radius: 7px;
+        border-bottom: none;
       }
 
-      #alternate-mobile-number{
-        border: 2px solid #9F9F9F;
+      #alternate-mobile-number {
+        border: 2px solid #9f9f9f;
         border-radius: 7px;
+        border-bottom: none;
       }
 
       .add-address-heading {
@@ -57,7 +63,25 @@
         margin-bottom: 30px;
       }
 
+      .address-type-container{
+        display: flex;
+        width: 35%;
+        justify-content: space-evenly;
+      }
+    }
+
+    .add-address-bottom-right-container {
+      display: flex;
+      flex-direction: column;
+      .shopping-btn {
+        background-color: #ff9f00;
+        margin-top: 15px;
+        width: 380px;
+        height: 50px;
+        font-weight: 600;
+        font-size: 18px;
+        align-self: center;
+      }
     }
   }
 }
-
