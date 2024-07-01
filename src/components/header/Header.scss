@@ -1,0 +1,55 @@
+.header-main-container {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+
+  .header-heading {
+    font-family: "The Nautigal", cursive;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 50px;
+    background: linear-gradient(90deg, #b8263d 0%, #feb600 70%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+
+  .header-search-bar{
+    width: 30%;
+
+    .header-search{
+      background-color: #F4F4F4;
+    }
+    
+    
+  }
+
+  .header-components-container{
+    display: flex;
+    list-style-type: none;
+    justify-content: space-evenly;
+    width: 15%;
+
+    .list-item{
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+        background-color: #fff;
+        border: none;
+        
+        .list-para{
+            margin-top: 4px;
+            margin-bottom: 0px;
+            font-family: "Roboto Mono", sans-serif;
+            font-weight: 500;
+            font-size: 16px;
+            color: #841F3F;
+        }
+    }
+    
+  }
+}
