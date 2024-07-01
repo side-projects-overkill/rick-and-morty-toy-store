@@ -3,7 +3,6 @@ import './CategorySlider.scss'
 
 
 function CategorySlider(products) {
-  console.log(products?.products)
   return (
     <div className='categoryslider-main-container'>
       {

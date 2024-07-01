@@ -24,6 +24,9 @@ function Home() {
           <>
             <InfoSlider products={products?.results?.slice(0,4)}/>
             <CategorySlider products={products?.results?.slice(4,8)}/>
+            <div>
+              <h2>Want delivery today?</h2>
+            </div>
             <Products products={products?.results?.slice(8,12)}/>
             <Products products={products?.results?.slice(15,19)}/>
           </>

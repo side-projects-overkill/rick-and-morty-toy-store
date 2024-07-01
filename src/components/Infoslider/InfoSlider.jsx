@@ -6,7 +6,6 @@ import { Carousel } from 'react-responsive-carousel'
 
 
 function InfoSlider(products) {
-  console.log(products)
   return (
     <>
     {products && <Carousel 

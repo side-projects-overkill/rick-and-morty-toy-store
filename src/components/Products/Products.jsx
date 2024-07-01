@@ -2,13 +2,17 @@ import React from 'react'
 import './Products.scss'
 import { Card, CardBody, CardFooter } from '@patternfly/react-core';
 
+import { NavLink } from 'react-router-dom';
+
+
 function Products(products) {
     return (
         <div className='products-container'>
             {
                 products && products?.products?.map((product)=>{
                     return(
-                        <Card ouiaId="BasicCard" key={product.id}>
+                        <NavLink to={`/product/${product.id}`} style={{textDecoration:"none"}} key={product.id}>
+                        <Card ouiaId="BasicCard">
                             <CardBody>
                                 <img src={product.image} alt="" className='card-image'/>
                             </CardBody>
@@ -36,6 +40,7 @@ function Products(products) {
                                 </div>
                             </CardFooter>
                         </Card>
+                        </NavLink>
                                 )
                 })
             }
