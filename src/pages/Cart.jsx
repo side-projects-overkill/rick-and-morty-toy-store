@@ -35,7 +35,7 @@ function Cart() {
         )
       })
     }
-    <div>
+    <div className='cart-recommended-section'>
       <h2>Recommended Toys</h2>
       <Products products={products?.results?.slice(7,11)}/>
     </div>
