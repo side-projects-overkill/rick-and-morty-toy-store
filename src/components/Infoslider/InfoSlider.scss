@@ -27,15 +27,19 @@
     }
 
     .infoslider-right-container{
-        float: right;
         width: 80%;
         height: 80%;
+        align-self: flex-start;
     }
 }
 
 
 .carousel .slide img{
     width: 350px !important;
+}
+
+.carousel .slide {
+    text-align: left!important;
 }
 
 
@@ -57,11 +61,7 @@
 }
 
 .control-next.control-arrow{
-    right: 6% !important;
-}
-
-.control-prev.control-arrow{
-    left: 3% !important;
+    right: 8% !important;
 }
 
 .control-prev.control-arrow:before {

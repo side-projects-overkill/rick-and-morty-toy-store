@@ -1,38 +1,60 @@
-import React from 'react'
-
-import tempImage from '../../assets/images/logo512.png'
+import React, { useEffect, useState } from 'react'
 
 import './ProductView.scss'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom';
 
-function ProductView() {
+import {addToCart} from '../redux_api/actions/cartActions'
+
+function ProductView({product}) {
+
+  const [quantity,setQuantity] = useState(1)
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const {id} = product;
+
+  const addToItemCart = ()=>{
+    dispatch(addToCart(id,quantity));
+    navigate('/cart');
+  }
+
   return (
-    <div className='prodcutinfo-main-container'>
-        <div className='prodcutinfo-left-container'>
-          <img src= {tempImage} alt='nothing'/>
+    <div className='productinfo-main-container'>
+        <div className='productinfo-left-container'>
+          <img src= {product.image} alt='nothing'/>
         </div>
-        <div className='prodcutinfo-right-container'>
-          <h3>header</h3>
-          <p>review</p>
-          <p>₿ ammount</p>
+        <div className='productinfo-right-container'>
+          <h3>{product.name}</h3>
+          <p className='productview-price'>₿ {product.id}</p>
+          <table>
+            <tbody>
+              <tr aria-rowspan={2}>
+                <td>Toy Species:</td>
+                <td><strong>{product.species}</strong></td>
+              </tr>
+              <tr>
+                <td>Gender Of Toy:</td>
+                <td><strong>{product.gender}</strong> </td>
+              </tr>
+            <tr className='productview-color-row'>
+              <td>Color:</td>
+              <td><input type="radio" name="toycolor"/> <span>Red</span> </td>
+              <td><input type="radio" name="toycolor"/> <span>Green</span> </td>
+              <td><input type="radio" name="toycolor"/> <span>Yellow</span> </td>
+            </tr>
+            <tr className='productview-size-row'>
+              <td>Size:</td>
+              <td><input type="radio" name="toysize" /> <span>Small</span></td>
+              <td><input type="radio" name="toysize" /> <span>Medium</span></td>
+              <td><input type="radio" name="toysize" /> <span>Large</span></td>
+            </tr>
+          </tbody>
+        </table>
 
-          <div>
-            <p>Toy Species: toy</p>
-            <p>Gender Of Toy: Male</p>
-          </div>
-
-          <div>
-            <div>
-              Color: <input type="radio" name="toycolor" /> <span>Red</span> <input type="radio" name="toycolor" /> <span>Green</span> <input type="radio" name="toycolor" /> <span>Yellow</span>
-            </div>
-
-            <div>
-              Size: <input type="radio" name="toycolor" /> <span>Large</span> <input type="radio" name="toycolor" /> <span>Medium</span> <input type="radio" name="toycolor" /> <span>Large</span>
-            </div>
-          </div>
-
-          <div>
-            <button >Buy Now</button>
-            <button >Add To cart</button>
+          <div className='product-button-group'>
+            <button className='buy-now-btn'>Buy Now</button>
+            <button className='add-to-cart-btn' onClick={addToItemCart}>Add To cart</button>
           </div>
 
         </div>
