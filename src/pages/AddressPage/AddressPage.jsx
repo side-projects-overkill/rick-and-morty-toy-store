@@ -10,15 +10,22 @@ import {
   Flex,
   FlexItem,
 } from "@patternfly/react-core";
+import { useSelector } from "react-redux";
 import { Formik} from "formik";
+import { Link } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import deliveryAddressSchema from "./DeliveryAddressSchema";
 import ProgressBar from "../../components/progressbar/ProgressBar";
 import PriceDetails from "../../components/priceDetails/PriceDetails";
-import { Link } from "react-router-dom";
 import ActivePill from "../../components/activePill/ActivePill";
 import InactivePill from "../../components/inactivePill/InactivePill";
+import Products from "../../components/Products/Products"
 
 function AddressPage() {
+  const { products } = useSelector((state) => state.getProducts);
+
+  const navigate = useNavigate();
+
   return (
     <div className="add-address-main-container">
       <ProgressBar />
@@ -289,10 +296,14 @@ function AddressPage() {
         </div>
         <div className="add-address-bottom-right-container">
           <PriceDetails btnvalue="checkout" />
-          <Button variant="primary" ouiaId="Primary" className="shopping-btn">
+          <Button variant="primary" ouiaId="Primary" className="shopping-btn" onClick={()=> navigate("/")}>
             Continue Shopping
           </Button>
         </div>
+      </div>
+      <div className="cart-recommended-section">
+        <h2>Recommended Toys</h2>
+        <Products products={products?.results?.slice(7, 11)} />
       </div>
     </div>
   );

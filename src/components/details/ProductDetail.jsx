@@ -49,7 +49,7 @@ function ProductDetail() {
       </div>
 
       <div>
-      <h2>Recommended Toys</h2>
+      <h2 className='recomended-heading'>Recommended Toys</h2>
       <Products products={products?.results?.slice(13,17)}/>
       </div>
  

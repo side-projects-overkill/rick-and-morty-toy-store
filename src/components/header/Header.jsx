@@ -10,6 +10,7 @@ import {
   TextInputGroupUtilities,
   SearchInput,
 } from "@patternfly/react-core";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function Header() {
   const [value, setValue] = React.useState("");
@@ -19,7 +20,7 @@ function Header() {
   return (
     <div className="header-main-container">
       <div>
-        <h1 className="header-heading">Rick and Morty Store</h1>
+          <h1 className="header-heading">Rick and Morty Store</h1>
       </div>
       <div className="header-search-bar">
         <SearchInput

@@ -1,14 +1,28 @@
 import "./PriceDetails.scss";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "@patternfly/react-core";
 import { Link } from "react-router-dom";
 import ApplyCoupon from "../../assets/icons/ApplyCoupon";
+import { useSelector } from "react-redux";
+
 
 
 function PriceDetails({btnvalue}) {
+  const [price , setPrice] = useState();
+  const { cartItems } = useSelector((state) => state.cart);
+
+  const totalAmount = () =>{
+    let total = 0;
+    cartItems.forEach((item) => {
+      total += item.id * item.quantity;
+    })
+    setPrice(total);
+  }
 
   const getRoute = (btnvalue) => {
     switch(btnvalue){
+      case "Checkout":
+        return "/address";
       case "checkout":
         return "/personalize-your-cake";
       case "payment":
@@ -19,6 +33,10 @@ function PriceDetails({btnvalue}) {
   }
 
   const route = getRoute(btnvalue);
+
+  useEffect(()=>{
+    totalAmount();
+  }, [cartItems]);
 
   return (
     <div className="price-details-main-container">
@@ -32,7 +50,7 @@ function PriceDetails({btnvalue}) {
           <div className="price-details-info">
             <p>Cart Total</p>
             <p>
-              <b>Rs. 1,000</b>
+              <b>₿  {price}</b>
             </p>
           </div>
           <div className="price-details-info">
@@ -42,7 +60,7 @@ function PriceDetails({btnvalue}) {
           <div className="price-details-info">
             <p>Order Total</p>
             <p>
-              <b>Rs. 1,000</b>
+              <b>₿  {price}</b>
             </p>
           </div>
           <div className="price-details-info">
@@ -52,7 +70,7 @@ function PriceDetails({btnvalue}) {
         </div>
         <div className="price-details-total">
           <p>Total Amount</p>
-          <p>Rs. 1,000</p>
+          <p>₿  {price}</p>
         </div>
         <Link to={route}>
           <Button variant="primary" ouiaId="Primary" className="checkout-btn">

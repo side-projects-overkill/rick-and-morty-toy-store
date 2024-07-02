@@ -12,8 +12,12 @@ import PersonalizeYourCakePage from "./pages/PersonalizeYourCakePage/Personalize
 import PaymentPage from "./pages/PaymentPage/PaymentPage.jsx";
 import PaymentConfirmationPage from "./pages/PaymentConfirmationPage/PaymentConfirmationPage.jsx";
 import ProductDetail from './components/details/ProductDetail';
-import Cart from './pages/Cart';
-import Home from './pages/Home';
+import Cart from './pages/Cart/Cart.jsx';
+import Home from './pages/Home/Home.jsx';
+
+import { store } from './components/redux_api/store.js'
+import { Provider } from 'react-redux'
+
 
 const router = createBrowserRouter([
   {
@@ -49,11 +53,14 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
+    <Provider store={store}>
       <div className="app">
         <Header />
         <RouterProvider router={router} />
         <Footer />
       </div>
+    </Provider>
+      
     </>
   );
 }

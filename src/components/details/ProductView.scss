@@ -1,6 +1,6 @@
 .productinfo-main-container{
     display: grid;;
-    width: 70%;
+    width: 80%;
     grid-template-columns: 1fr 1fr;
 .productinfo-left-container{
     &>img{
@@ -27,6 +27,7 @@
 .product-button-group{
     position: relative;
     top: 14%;
+    
     .buy-now-btn{
         background-color: #B8263D;
         color: #FFFFFF;

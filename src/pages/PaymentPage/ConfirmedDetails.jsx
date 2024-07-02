@@ -1,8 +1,26 @@
 import "./ConfirmedDetails.scss";
-import React from "react";
+import React , {useState , useEffect} from "react";
 import ApplyCoupon from "../../assets/icons/ApplyCoupon";
+import { useSelector } from "react-redux";
 
 function ConfirmedDetails() {
+  const [price , setPrice] = useState();
+
+  const { cartItems } = useSelector((state) => state.cart);
+
+  const totalAmount = () =>{
+    let total = 0;
+    cartItems.forEach((item) => {
+      total += item.id * item.quantity;
+    })
+    setPrice(total);
+  }
+
+  useEffect(()=>{
+    totalAmount();
+  }, [cartItems]);
+
+
   return (
     <div className="confirm-details-main-container">
       <div className="confirm-detials-apply-coupon-contianer">
@@ -15,7 +33,7 @@ function ConfirmedDetails() {
           <div className="confirm-details-info">
             <p>Cart Total</p>
             <p>
-              <b>Rs. 1,000</b>
+              <b>₿  {price}</b>
             </p>
           </div>
           <div className="confirm-details-info">
@@ -25,7 +43,7 @@ function ConfirmedDetails() {
           <div className="confirm-details-info">
             <p>Order Total</p>
             <p>
-              <b>Rs. 1,000</b>
+              <b>₿  {price}</b>
             </p>
           </div>
           <div className="confirm-details-info">
@@ -35,10 +53,10 @@ function ConfirmedDetails() {
         </div>
         <div className="confirm-details-total">
           <p>Total Amount</p>
-          <p>Rs. 1,000</p>
+          <p>₿  {price}</p>
         </div>
         <div className="confirm-details-bottom-container">
-          <h1 className="details-bottom-heading">SENDER DETAILS <span className="details-bottom-span">(Change)</span></h1>
+          <p className="details-bottom-heading">SENDER DETAILS <span className="details-bottom-span">(Change)</span></p>
           <p>
             Sarah
             
@@ -48,7 +66,7 @@ function ConfirmedDetails() {
           </p>
         </div>
         <div className="confirm-details-bottom-container">
-          <h1 className="details-bottom-heading">DELIVERY TIME <span className="details-bottom-span"> (Change)   </span></h1>
+          <p className="details-bottom-heading">DELIVERY TIME <span className="details-bottom-span"> (Change)   </span></p>
           <p>
             22/09/2022 4:00PM
           </p>

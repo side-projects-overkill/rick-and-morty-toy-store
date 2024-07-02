@@ -12,13 +12,16 @@ import {
   TextInputGroupMain,
   Checkbox,
 } from "@patternfly/react-core";
+import { useSelector } from "react-redux";
 import ProgressBar from "../../components/progressbar/ProgressBar";
 import PriceDetails from "../../components/priceDetails/PriceDetails";
 import CustomerInfo from "../../components/customerInfo/CustomerInfo";
 import ActivePill from "../../components/activePill/ActivePill";
 import InactivePill from "../../components/inactivePill/InactivePill";
+import Products from "../../components/Products/Products"
 
 function PersonalizeYourCakePage() {
+  const { products } = useSelector((state) => state.getProducts);
   return (
     <div className="personalize-main-container">
       <ProgressBar />
@@ -56,10 +59,10 @@ function PersonalizeYourCakePage() {
             </FormGroup>
 
             <div className="sender-container">
-              <h1 className="sender-text">
+              <p className="sender-text">
                 Sender Information Order related communication will also be sent
                 on these details.
-              </h1>
+              </p>
               <Button
                 variant="secondary"
                 ouiaId="Primary"
@@ -109,6 +112,10 @@ function PersonalizeYourCakePage() {
           <CustomerInfo />
           <PriceDetails btnvalue="payment"/>
         </div>
+      </div>
+      <div className="cart-recommended-section">
+        <h2>Recommended Toys</h2>
+        <Products products={products?.results?.slice(7, 11)} />
       </div>
     </div>
   );

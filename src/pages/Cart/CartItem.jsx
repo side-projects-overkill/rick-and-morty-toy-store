@@ -3,7 +3,7 @@ import './CartItem.scss'
 
 import { TrashIcon } from '@patternfly/react-icons'
 import { Icon } from '@patternfly/react-core'
-import { addToCart, removeFromCart } from '../components/redux_api/actions/cartActions'
+import { addToCart, removeFromCart } from '../../components/redux_api/actions/cartActions'
 import { useDispatch } from 'react-redux'
 
 function CartItem({item}) {

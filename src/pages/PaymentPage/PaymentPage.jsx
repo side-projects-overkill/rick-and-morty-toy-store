@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Form,
   FormGroup,
@@ -13,11 +13,39 @@ import PaymentFormSchema from "./PaymentFormSchema";
 import ProgressBar from "../../components/progressbar/ProgressBar";
 import ConfirmedDetails from "./ConfirmedDetails";
 import CustomerInfo from "../../components/customerInfo/CustomerInfo";
-import "./PaymentPage.scss";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
+import "./PaymentPage.scss";
+
 function PaymentPage() {
+  const [price, setPrice] = useState();
   const navigate = useNavigate();
+
+  const { cartItems } = useSelector((state) => state.cart);
+
+  const totalAmount = () => {
+    let total = 0;
+    cartItems.forEach((item) => {
+      total += item.id * item.quantity;
+    });
+    setPrice(total);
+  };
+
+  useEffect(() => {
+    totalAmount();
+  }, [cartItems]);
+
+  const paymentOptions = [
+    "Credit/Debit Card",
+    "Netbanking",
+    "Paytm",
+    "Google Pay",
+    "PhonePe",
+    "PayPal",
+    "PayLater",
+    "Cash On Delivery",
+  ];
 
   return (
     <div className="payment-main-container">
@@ -25,37 +53,16 @@ function PaymentPage() {
       <div className="payment-bottom-container">
         <div className="payment-bottom-left-container">
           <div className="payment-method-container">
-            <div className="payment-method-credit-item">
-              <p>Credit/Debit Card</p>
-            </div>
-            <hr />
-            <div className="payment-method-list-item">
-              <p>Netbanking</p>
-            </div>
-            <hr />
-            <div className="payment-method-list-item">
-              <p>Paytm</p>
-            </div>
-            <hr />
-            <div className="payment-method-list-item">
-              <p>Google Pay</p>
-            </div>
-            <hr />
-            <div className="payment-method-list-item">
-              <p>PhonePe</p>
-            </div>
-            <hr />
-            <div className="payment-method-list-item">
-              <p>PayPal</p>
-            </div>
-            <hr />
-            <div className="payment-method-list-item">
-              <p>PayLater</p>
-            </div>
-            <hr />
-            <div className="payment-method-list-item">
-              <p>Cash On Delivery</p>
-            </div>
+            {paymentOptions.map((option) => {
+              return (
+                <>
+                  <div className="payment-method-list-item">
+                    <p>{option}</p>
+                  </div>
+                  <hr />
+                </>
+              );
+            })}
           </div>
           <hr />
           <div className="payment-details-container">
@@ -103,11 +110,7 @@ function PaymentPage() {
                         />
                       )}
                     </Field>
-                    <ErrorMessage
-                      name="cardNumber"
-                      component="div"
-                      className="error"
-                    />
+                    
                   </FormGroup>
                   <FormGroup
                     fieldId="name-on-card"
@@ -134,11 +137,7 @@ function PaymentPage() {
                         />
                       )}
                     </Field>
-                    <ErrorMessage
-                      name="nameOnCard"
-                      component="div"
-                      className="error"
-                    />
+                   
                   </FormGroup>
                   <Flex>
                     <FlexItem flex={{ default: "flex_1" }}>
@@ -157,7 +156,7 @@ function PaymentPage() {
                           {({ field }) => (
                             <TextInput
                               {...field}
-                              type="date"
+                              type="number"
                               id="expiry-date"
                               placeholder="Expiry Date"
                               validated={
@@ -168,11 +167,7 @@ function PaymentPage() {
                             />
                           )}
                         </Field>
-                        <ErrorMessage
-                          name="expiryDate"
-                          component="div"
-                          className="error"
-                        />
+                        
                       </FormGroup>
                     </FlexItem>
                     <FlexItem flex={{ default: "flex_1" }}>
@@ -201,11 +196,7 @@ function PaymentPage() {
                             />
                           )}
                         </Field>
-                        <ErrorMessage
-                          name="cardCVV"
-                          component="div"
-                          className="error"
-                        />
+                        
                       </FormGroup>
                     </FlexItem>
                     <FlexItem>
@@ -219,7 +210,7 @@ function PaymentPage() {
                     ouiaId="Primary"
                     className="pay-btn"
                   >
-                    Pay Now
+                    Pay ₿{price} Now
                   </Button>
                 </Form>
               )}
