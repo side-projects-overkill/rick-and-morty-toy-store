@@ -11,7 +11,7 @@ function CartItem({item}) {
   const dispatch = useDispatch();
 
   const addToItemCart =()=>{
-    dispatch(addToCart(item.id,item.quantity+1));
+    dispatch(addToCart(item.id,1));
   }
 
   const reduceFromItemCart =()=>{
@@ -19,7 +19,7 @@ function CartItem({item}) {
     dispatch(removeFromCart(item.id));
     }
     else{
-      dispatch(addToCart(item.id,item.quantity-1));
+      dispatch(addToCart(item.id,-1));
     }
   }
 

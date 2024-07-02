@@ -7,6 +7,7 @@ export const cartReducer = (state={cartItems:[]},action)=>{
             const exist = state.cartItems.find(product=>product.id===item.id);
 
             if(exist){
+                item.quantity += exist.quantity;
                 return {...state,cartItems:state.cartItems.map(data=>data.id===exist.id?item:data)};
             }
             else{
