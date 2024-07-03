@@ -18,7 +18,7 @@ function ConfirmedDetails() {
 
   useEffect(()=>{
     totalAmount();
-  }, [cartItems]);
+  });
 
 
   return (

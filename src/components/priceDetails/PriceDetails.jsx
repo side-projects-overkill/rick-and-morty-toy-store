@@ -36,7 +36,7 @@ function PriceDetails({btnvalue}) {
 
   useEffect(()=>{
     totalAmount();
-  }, [cartItems]);
+  });
 
   return (
     <div className="price-details-main-container">

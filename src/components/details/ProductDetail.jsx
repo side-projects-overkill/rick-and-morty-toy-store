@@ -23,7 +23,7 @@ function ProductDetail() {
       dispatch(getProductDetails(id))
       dispatch(getProducts())
     }
-  },[dispatch,id]);
+  },[dispatch,id,product]);
 
   return (
     <div>

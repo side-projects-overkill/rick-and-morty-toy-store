@@ -1,26 +1,21 @@
-import React, { useEffect, useState } from "react";
-
 import "./ProductView.scss";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { addToCart } from "../redux_api/actions/cartActions";
-import { Link } from "react-router-dom";
 
 function ProductView({ product }) {
-  const [quantity, setQuantity] = useState(1);
-
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { id } = product;
 
   const addToItemCart = () => {
-    dispatch(addToCart(id, quantity));
+    dispatch(addToCart(id, 1));
     navigate("/cart");
   };
 
   const buyNow = () => {
-    dispatch(addToCart(id, quantity));
+    dispatch(addToCart(id, 1));
     navigate("/address");
   };
 

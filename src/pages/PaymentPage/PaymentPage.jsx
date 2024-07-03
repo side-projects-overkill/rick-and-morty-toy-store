@@ -8,7 +8,7 @@ import {
   FlexItem,
 } from "@patternfly/react-core";
 import CreditCardImage from "../../assets/images/credit-card-image.png";
-import { Formik, Field, ErrorMessage } from "formik";
+import { Formik, Field} from "formik";
 import PaymentFormSchema from "./PaymentFormSchema";
 import ProgressBar from "../../components/progressbar/ProgressBar";
 import ConfirmedDetails from "./ConfirmedDetails";
@@ -34,7 +34,7 @@ function PaymentPage() {
 
   useEffect(() => {
     totalAmount();
-  }, [cartItems]);
+  });
 
   const paymentOptions = [
     "Credit/Debit Card",

@@ -4,13 +4,7 @@ import Location from "../../assets/icons/Location";
 import Help from "../../assets/icons/Help";
 import Cart from "../../assets/icons/Cart";
 import Account from "../../assets/icons/Account";
-import {
-  TextInputGroup,
-  TextInputGroupMain,
-  TextInputGroupUtilities,
-  SearchInput,
-} from "@patternfly/react-core";
-import { NavLink, useNavigate } from "react-router-dom";
+import { SearchInput } from "@patternfly/react-core";
 
 function Header() {
   const [value, setValue] = React.useState("");
@@ -20,7 +14,7 @@ function Header() {
   return (
     <div className="header-main-container">
       <div>
-          <h1 className="header-heading">Rick and Morty Store</h1>
+        <h1 className="header-heading">Rick and Morty Store</h1>
       </div>
       <div className="header-search-bar">
         <SearchInput
