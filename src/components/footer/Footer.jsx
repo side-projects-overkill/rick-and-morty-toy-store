@@ -1,10 +1,11 @@
-import React from 'react'
-import "./Footer.scss"
+import "./Footer.scss";
 
 function Footer() {
   return (
-    <div className='footer-main-container'>Copyright © 2022 TheCakeAlchemy Inc. All rights reserved.</div>
-  )
+    <div className="footer-main-container">
+      Copyright © 2022 TheCakeAlchemy Inc. All rights reserved.
+    </div>
+  );
 }
 
-export default Footer
+export default Footer;

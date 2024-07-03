@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   Form,
   FormGroup,
@@ -8,7 +8,7 @@ import {
   FlexItem,
 } from "@patternfly/react-core";
 import CreditCardImage from "../../assets/images/credit-card-image.png";
-import { Formik, Field} from "formik";
+import { Formik, Field } from "formik";
 import PaymentFormSchema from "./PaymentFormSchema";
 import ProgressBar from "../../components/progressbar/ProgressBar";
 import ConfirmedDetails from "./ConfirmedDetails";
@@ -110,7 +110,6 @@ function PaymentPage() {
                         />
                       )}
                     </Field>
-                    
                   </FormGroup>
                   <FormGroup
                     fieldId="name-on-card"
@@ -137,7 +136,6 @@ function PaymentPage() {
                         />
                       )}
                     </Field>
-                   
                   </FormGroup>
                   <Flex>
                     <FlexItem flex={{ default: "flex_1" }}>
@@ -167,7 +165,6 @@ function PaymentPage() {
                             />
                           )}
                         </Field>
-                        
                       </FormGroup>
                     </FlexItem>
                     <FlexItem flex={{ default: "flex_1" }}>
@@ -196,7 +193,6 @@ function PaymentPage() {
                             />
                           )}
                         </Field>
-                        
                       </FormGroup>
                     </FlexItem>
                     <FlexItem>

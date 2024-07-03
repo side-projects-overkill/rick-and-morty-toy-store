@@ -1,13 +1,16 @@
-import "./InactivePill.scss"
-import {Badge} from '@patternfly/react-core';
-import React from 'react'
+import "./InactivePill.scss";
+import { Badge } from "@patternfly/react-core";
 
-function InactivePill({content}) {
+function InactivePill({ content }) {
   return (
-    <Badge key={1} screenReaderText="Unread Messages" className='inactive-pill-container'>
+    <Badge
+      key={1}
+      screenReaderText="Unread Messages"
+      className="inactive-pill-container"
+    >
       {content}
     </Badge>
-  )
+  );
 }
 
-export default InactivePill
+export default InactivePill;

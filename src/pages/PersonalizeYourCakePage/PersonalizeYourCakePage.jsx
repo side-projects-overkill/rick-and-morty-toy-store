@@ -1,4 +1,3 @@
-import React from "react";
 import "./PersonalizeYourCakePage.scss";
 import {
   Form,
@@ -18,7 +17,7 @@ import PriceDetails from "../../components/priceDetails/PriceDetails";
 import CustomerInfo from "../../components/customerInfo/CustomerInfo";
 import ActivePill from "../../components/activePill/ActivePill";
 import InactivePill from "../../components/inactivePill/InactivePill";
-import Products from "../../components/Products/Products"
+import Products from "../../components/Products/Products";
 
 function PersonalizeYourCakePage() {
   const { products } = useSelector((state) => state.getProducts);
@@ -44,9 +43,9 @@ function PersonalizeYourCakePage() {
 
             <FormGroup label="Occasion" fieldId="fier">
               <div className="occasion-type">
-                <ActivePill content="Birthday"/>
-                <InactivePill content="Anniversary"/>
-                <InactivePill content="Other"/>
+                <ActivePill content="Birthday" />
+                <InactivePill content="Anniversary" />
+                <InactivePill content="Other" />
               </div>
             </FormGroup>
 
@@ -110,7 +109,7 @@ function PersonalizeYourCakePage() {
         </div>
         <div className="personalize-bottom-right-container">
           <CustomerInfo />
-          <PriceDetails btnvalue="payment"/>
+          <PriceDetails btnvalue="payment" />
         </div>
       </div>
       <div className="cart-recommended-section">

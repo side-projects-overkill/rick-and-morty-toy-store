@@ -1,5 +1,4 @@
 import "./AddressPage.scss";
-import React from "react";
 import {
   Form,
   FormGroup,
@@ -11,15 +10,15 @@ import {
   FlexItem,
 } from "@patternfly/react-core";
 import { useSelector } from "react-redux";
-import { Formik} from "formik";
+import { Formik } from "formik";
 import { Link } from "react-router-dom";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import deliveryAddressSchema from "./DeliveryAddressSchema";
 import ProgressBar from "../../components/progressbar/ProgressBar";
 import PriceDetails from "../../components/priceDetails/PriceDetails";
 import ActivePill from "../../components/activePill/ActivePill";
 import InactivePill from "../../components/inactivePill/InactivePill";
-import Products from "../../components/Products/Products"
+import Products from "../../components/Products/Products";
 
 function AddressPage() {
   const { products } = useSelector((state) => state.getProducts);
@@ -296,7 +295,12 @@ function AddressPage() {
         </div>
         <div className="add-address-bottom-right-container">
           <PriceDetails btnvalue="checkout" />
-          <Button variant="primary" ouiaId="Primary" className="shopping-btn" onClick={()=> navigate("/")}>
+          <Button
+            variant="primary"
+            ouiaId="Primary"
+            className="shopping-btn"
+            onClick={() => navigate("/")}
+          >
             Continue Shopping
           </Button>
         </div>

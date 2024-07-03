@@ -1,75 +1,68 @@
-.price-details-main-container{
+.price-details-main-container {
+  .price-detials-apply-coupon-contianer {
+    margin-bottom: 20px;
+    height: auto;
+    width: 442px;
+    padding: 9px 0px 9px 19px;
+    display: flex;
+    align-items: center;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
-    .price-detials-apply-coupon-contianer{
-        margin-bottom: 20px;
-        height: auto;
-        width: 442px;
-        padding: 9px 0px 9px 19px;
+    .apply-coupon-heading {
+      margin-left: 15px;
+      background-color: #fff;
+      border: none;
+      color: #0066cc;
+      padding: 0px;
+    }
+  }
+
+  .price-details-info-container {
+    height: auto;
+    width: 442px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+
+    .price-details-sub-container {
+      margin-bottom: 23px;
+
+      .price-details-info {
         display: flex;
-        align-items: center;
-        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        justify-content: space-between;
+        margin-bottom: 5px;
 
-        .apply-coupon-heading{
-            margin-left: 15px;
-            background-color: #fff;
-            border: none;
-            color: #0066CC;
-            padding: 0px;
+        .add-coupon-text {
+          color: #0066cc;
+          background-color: #fff;
+          border: none;
+          color: #0066cc;
+          padding: 0px;
         }
+
+        .free-text {
+          color: #1c9305;
+        }
+      }
     }
 
-    .price-details-info-container{
-        height: auto;
-        width: 442px;
-        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-
-        .price-details-heading{
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 14px;
-        }
-
-        .price-details-sub-container{
-            margin-bottom: 23px;
-
-            .price-details-info{
-                display: flex;
-                justify-content: space-between;
-                margin-bottom: 5px;
-
-                .add-coupon-text{
-                    color: #0066CC;
-                    background-color: #fff;
-                    border: none;
-                    color: #0066CC;
-                    padding: 0px;
-                }
-
-                .free-text{
-                    color: #1C9305;
-                }
-            }
-        }
-
-        .price-details-total{
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 30px;
-            font-weight: 600;
-            font-size: 18px;
-        }
-
-        .checkout-btn{
-            align-self: center;
-            background-color: #B8263D;
-            margin-left: 11px;
-            width: 380px;
-            height: 50px;
-            font-weight: 600;
-            font-size: 18px;
-        }
+    .price-details-total {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+      font-weight: 600;
+      font-size: 18px;
     }
+
+    .checkout-btn {
+      align-self: center;
+      background-color: #b8263d;
+      margin-left: 11px;
+      width: 380px;
+      height: 50px;
+      font-weight: 600;
+      font-size: 18px;
+    }
+  }
 }
