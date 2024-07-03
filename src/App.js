@@ -1,8 +1,9 @@
 import React from "react";
 import "./App.css";
 import {
-  createBrowserRouter,
-  RouterProvider,
+  BrowserRouter as Router,
+  Routes,
+  Route
 } from "react-router-dom";
 import { createRoot } from "react-dom/client";
 import Header from "./components/header/Header";
@@ -19,7 +20,7 @@ import { store } from './components/redux_api/store.js'
 import { Provider } from 'react-redux'
 
 
-const router = createBrowserRouter([
+const routes = [
   {
     path: "/",
     element: <Home />,
@@ -48,7 +49,7 @@ const router = createBrowserRouter([
     path: "/payment-confirm",
     element: <PaymentConfirmationPage/>,
   },
-]);
+];
 
 function App() {
   return (
@@ -56,7 +57,17 @@ function App() {
     <Provider store={store}>
       <div className="app">
         <Header />
-        <RouterProvider router={router} />
+        <Router>
+          <Routes>
+            {
+              routes.map((route) => {
+                return (
+                  <Route path={route.path} element={route.element}/>
+                )
+              })
+            }
+          </Routes>
+        </Router>
         <Footer />
       </div>
     </Provider>
