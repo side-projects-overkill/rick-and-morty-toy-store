@@ -5,6 +5,7 @@
   justify-content: space-evenly;
   align-items: center;
 
+
   .header-heading {
     font-family: "The Nautigal", cursive;
     font-weight: 600;
@@ -20,15 +21,11 @@
   .header-search-bar{
     width: 30%;
 
-    .search-bar-icon{
-      justify-content: flex-end;
-    }
-
-    .text-group-utils{
-      margin: 0;
+    .header-search{
       background-color: #F4F4F4;
-      padding: 20px;
     }
+    
+    
   }
 
   .header-components-container{
