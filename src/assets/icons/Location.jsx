@@ -1,5 +1,3 @@
-import React from "react";
-
 function Location() {
   return (
     <svg
@@ -22,8 +20,8 @@ function Location() {
           y2="20"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.55" stop-color="#B8263D" />
-          <stop offset="1" stop-color="#FEB600" />
+          <stop offset="0.55" stopColor="#B8263D" />
+          <stop offset="1" stopColor="#FEB600" />
         </linearGradient>
       </defs>
     </svg>

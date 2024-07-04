@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
-import "./Home.scss"
-
+import "./Home.scss";
+import { Text, TextVariants } from "@patternfly/react-core";
 import InfoSlider from "../../components/Infoslider/InfoSlider";
 import Products from "../../components/Products/Products";
 import CategorySlider from "../../components/categoryslider/CategorySlider";
 import ActivePill from "../../components/activePill/ActivePill";
 import InactivePill from "../../components/inactivePill/InactivePill";
-
 
 import { getProducts } from "../../components/redux_api/actions/productActions";
 
@@ -19,8 +18,6 @@ function Home() {
   useEffect(() => {
     dispatch(getProducts());
   }, [dispatch]);
-
-
   return (
     <div>
       {products && (
@@ -28,20 +25,12 @@ function Home() {
           <InfoSlider products={products?.results?.slice(0, 4)} />
           <CategorySlider products={products?.results?.slice(4, 8)} />
           <div>
-            <h1 className="delivery-heading">Want delivery today?</h1>
+            <Text component={TextVariants.h1}>Want delivery today?</Text>
             <div className="delivery-container">
               <ActivePill content="All" />
-              <InactivePill content="Agency Director" />
-              <InactivePill content="Alan Rails" />
-              <InactivePill content="Albert Einstein" />
-              <InactivePill content="Alexander" />
-              <InactivePill content="Amish Cyborg" />
-              <InactivePill content="Annie" />
-              <InactivePill content="Antenna Morty" />
-              <InactivePill content="Antenna Rick" />
-              <InactivePill content="Jerry Smith" />
-              <InactivePill content="Summer Smith" />
-              <InactivePill content="Beth Smith" />
+              {products?.results?.slice(0, 10).map((product) => {
+                return <InactivePill content={product?.name} key={product?.id} />;
+              })}
             </div>
           </div>
           <Products products={products?.results?.slice(8, 12)} />

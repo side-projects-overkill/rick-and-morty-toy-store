@@ -1,5 +1,3 @@
-import React from "react";
-
 function Cart() {
   return (
     <svg
@@ -22,8 +20,8 @@ function Cart() {
           y2="17.7778"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.505208" stop-color="#B8263D" />
-          <stop offset="1" stop-color="#FEB600" />
+          <stop offset="0.505208" stopColor="#B8263D" />
+          <stop offset="1" stopColor="#FEB600" />
         </linearGradient>
       </defs>
     </svg>

@@ -5,6 +5,12 @@
   justify-content: space-evenly;
   align-items: center;
 
+  @media screen and (max-width: 767px) {
+    width: 100%;
+    height: 60px;
+    justify-content: space-between;
+  }
+
   .header-heading {
     font-family: "The Nautigal", cursive;
     font-size: 50px;
@@ -14,10 +20,18 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
     cursor: pointer;
+
+    @media screen and (max-width: 767px) {
+      font-size: 30px;
+    }
   }
 
   .header-search-bar {
     width: 30%;
+
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
 
     .header-search {
       background-color: #f4f4f4;
