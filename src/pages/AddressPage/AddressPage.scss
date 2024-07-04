@@ -15,46 +15,11 @@
       height: auto;
       box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
-      #recipient-name {
+      .recipient-field{
+        --pf-v5-c-form-control--after--BorderBottomColor: 2px solid #9f9f9f;
         border: 2px solid #9f9f9f;
         border-radius: 5px;
-        border-bottom: none;
-      }
-
-      #recipient-address {
-        border: 2px solid #9f9f9f;
-        border-radius: 5px;
-        border-bottom: none;
-      }
-
-      #recipient-landmark {
-        border: 2px solid #9f9f9f;
-        border-radius: 5px;
-        border-bottom: none;
-      }
-
-      #recipient-pincode {
-        border: 2px solid #9f9f9f;
-        border-radius: 5px;
-        border-bottom: none;
-      }
-
-      #recipient-city {
-        border: 2px solid #9f9f9f;
-        border-radius: 5px;
-        border-bottom: none;
-      }
-
-      #recipient-mobile-number {
-        border: 2px solid #9f9f9f;
-        border-radius: 5px;
-        border-bottom: none;
-      }
-
-      #alternate-mobile-number {
-        border: 2px solid #9f9f9f;
-        border-radius: 5px;
-        border-bottom: none;
+        
       }
 
       .add-address-heading {

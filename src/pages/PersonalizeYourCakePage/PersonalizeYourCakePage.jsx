@@ -38,6 +38,7 @@ function PersonalizeYourCakePage() {
                 type="date"
                 id="date-time"
                 name="DateAndTime"
+                className="personalize-input"
               />
             </FormGroup>
 
@@ -54,6 +55,7 @@ function PersonalizeYourCakePage() {
                 isRequired
                 id="personal-message"
                 name="personalMessage"
+                className="personalize-input"
               />
             </FormGroup>
 

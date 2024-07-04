@@ -106,6 +106,7 @@ function PaymentPage() {
                         id="card-number"
                         name="cardNumber"
                         placeholder="Card Number"
+                        className="payment-input"
                         value={values.cardNumber}
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -139,6 +140,7 @@ function PaymentPage() {
                         id="name-on-card"
                         name="nameOnCard"
                         placeholder="Name on Card"
+                        className="payment-input"
                         value={values.nameOnCard}
                         onChange={handleChange}
                         onBlur={handleBlur}
@@ -173,6 +175,7 @@ function PaymentPage() {
                           id="expiry-date"
                           name="expiryDate"
                           placeholder="MM/YY"
+                          className="payment-input"
                           value={values.expiryDate}
                           onChange={handleChange}
                           onBlur={handleBlur}
@@ -204,6 +207,7 @@ function PaymentPage() {
                           id="card-cvv"
                           name="cardCVV"
                           placeholder="CVV"
+                          className="payment-input"
                           value={values.cardCVV}
                           onChange={handleChange}
                           onBlur={handleBlur}

@@ -59,6 +59,7 @@ function AddressPage() {
                 <FormGroup
                   label="Recipient Name"
                   fieldId="recipient-name"
+                  
                   helperTextInvalid={
                     errors.recipientName &&
                     touched.recipientName &&
@@ -74,6 +75,7 @@ function AddressPage() {
                     type="text"
                     id="recipient-name"
                     name="recipientName"
+                    className="recipient-field"
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.recipientName}
@@ -102,6 +104,7 @@ function AddressPage() {
                   <TextArea
                     id="recipient-address"
                     name="recipientAddress"
+                    className="recipient-field"
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.recipientAddress}
@@ -131,6 +134,7 @@ function AddressPage() {
                     type="text"
                     id="recipient-landmark"
                     name="recipientLandmark"
+                    className="recipient-field"
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.recipientLandmark}
@@ -162,6 +166,7 @@ function AddressPage() {
                         type="tel"
                         id="recipient-pincode"
                         name="recipientPincode"
+                        className="recipient-field"
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.recipientPincode}
@@ -192,6 +197,7 @@ function AddressPage() {
                         type="text"
                         id="recipient-city"
                         name="recipientCity"
+                        className="recipient-field"
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.recipientCity}
@@ -225,6 +231,7 @@ function AddressPage() {
                         type="tel"
                         id="recipient-mobile-number"
                         name="recipientMobile"
+                        className="recipient-field"
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.recipientMobile}
@@ -256,6 +263,7 @@ function AddressPage() {
                         type="tel"
                         id="alternate-mobile-number"
                         name="recipientAlternateMobile"
+                        className="recipient-field"
                         onChange={handleChange}
                         onBlur={handleBlur}
                         value={values.recipientAlternateMobile}
