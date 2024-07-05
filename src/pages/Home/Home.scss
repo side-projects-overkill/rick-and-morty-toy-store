@@ -1,14 +1,14 @@
-.home-main-container {
-  margin-top: 70px;
-  
-  .delivery-heading {
-    margin-top: 20px;
-  }
+.home-body {
+  .home-main-container {
+    .delivery-heading {
+      margin-top: 20px;
+    }
 
-  .delivery-container {
-    margin-top: 20px;
-    width: 80%;
-    display: flex;
-    justify-content: space-evenly;
+    .delivery-container {
+      margin-top: 20px;
+      width: 80%;
+      display: flex;
+      justify-content: space-evenly;
+    }
   }
 }

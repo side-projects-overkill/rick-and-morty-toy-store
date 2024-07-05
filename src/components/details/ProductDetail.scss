@@ -1,11 +1,10 @@
-.product-features{
-    width: 70%;
-    word-wrap: break-word;
-    margin-top: 100px;
-    margin-bottom: 40px;
+.product-features {
+  width: 90%;
+  word-wrap: break-word;
+  margin-top: 100px;
+  margin-bottom: 40px;
 }
-
-.recomended-heading{
-    font-size: 25px;
-    font-weight: 600;
+.buy-now-btn {
+  --pf-v5-c-button--FontSize: 30px;
+  --pf-v5-c-button--m-primary--BackgroundColor: black;
 }

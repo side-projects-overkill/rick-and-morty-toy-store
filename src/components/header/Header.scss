@@ -5,39 +5,22 @@
   justify-content: space-evenly;
   align-items: center;
 
-  @media screen and (max-width: 767px) {
-    width: 100%;
-    height: 60px;
-    justify-content: space-between;
-  }
-
   .header-heading {
     font-family: "The Nautigal", cursive;
-    font-size: 50px;
     font-weight: 600;
-    background: linear-gradient(90deg, #b8263d 10%, #feb600 80%);
+    font-style: normal;
+    font-size: 50px;
+    background: linear-gradient(90deg, #b8263d 0%, #feb600 70%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    cursor: pointer;
-
-    @media screen and (max-width: 767px) {
-      font-size: 30px;
-    }
   }
 
   .header-search-bar {
     width: 30%;
 
-    @media screen and (max-width: 767px) {
-      display: none;
-    }
-
     .header-search {
-      --pf-v5-c-text-input-group__text--after--BorderBottomColor: 1px solid #9f9f9f;
       background-color: #f4f4f4;
-      border: 2px solid #9f9f9f;
-      border-radius: 7px;
     }
   }
 

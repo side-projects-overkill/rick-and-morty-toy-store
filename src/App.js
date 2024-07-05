@@ -1,4 +1,5 @@
 import React from "react";
+import { TextContent } from "@patternfly/react-core";
 import "./App.css";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/header/Header";
@@ -50,15 +51,23 @@ function App() {
     <>
       <Provider store={store}>
         <div className="app">
-          <Router>
-            <Header />
-            <Routes>
-              {routes.map((route) => {
-                return <Route path={route.path} element={route.element} />;
-              })}
-            </Routes>
-            <Footer />
-          </Router>
+          <Header />
+          <TextContent>
+            <Router>
+              <Routes>
+                {routes.map((route, index) => {
+                  return (
+                    <Route
+                      path={route.path}
+                      element={route.element}
+                      key={index}
+                    />
+                  );
+                })}
+              </Routes>
+            </Router>
+          </TextContent>
+          <Footer />
         </div>
       </Provider>
     </>

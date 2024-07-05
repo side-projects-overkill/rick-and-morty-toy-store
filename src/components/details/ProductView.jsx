@@ -1,7 +1,14 @@
+import {
+  Text,
+  TextVariants,
+  Button,
+  Grid,
+  GridItem,
+} from "@patternfly/react-core";
 import "./ProductView.scss";
+
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
 import { addToCart } from "../redux_api/actions/cartActions";
 
 function ProductView({ product }) {
@@ -20,64 +27,75 @@ function ProductView({ product }) {
   };
 
   return (
-    <div className="productinfo-main-container">
-      <div className="productinfo-left-container">
-        <img src={product.image} alt="nothing" />
-      </div>
-      <div className="productinfo-right-container">
-        <h3>{product.name}</h3>
-        <p className="productview-price">₿ {product.id}</p>
-        <table>
-          <tbody>
-            <tr aria-rowspan={2}>
-              <td>Toy Species:</td>
-              <td>
-                <strong>{product.species}</strong>
-              </td>
-            </tr>
-            <tr>
-              <td>Gender Of Toy:</td>
-              <td>
-                <strong>{product.gender}</strong>{" "}
-              </td>
-            </tr>
-            <tr className="productview-color-row">
-              <td>Color:</td>
-              <td>
-                <input type="radio" name="toycolor" /> <span>Red</span>{" "}
-              </td>
-              <td>
-                <input type="radio" name="toycolor" /> <span>Green</span>{" "}
-              </td>
-              <td>
-                <input type="radio" name="toycolor" /> <span>Yellow</span>{" "}
-              </td>
-            </tr>
-            <tr className="productview-size-row">
-              <td>Size:</td>
-              <td>
+    <Grid className="productinfo-main-container">
+      <GridItem className="productinfo-left-container" span={6}>
+        <img src={product?.image} alt="larged product img" />
+      </GridItem>
+      <GridItem className="productinfo-right-container" span={6}>
+        <Grid>
+          <GridItem>
+            <Text component={TextVariants.h2}>{product?.name}</Text>
+          </GridItem>
+          <GridItem>
+            <Text component={TextVariants.p} className="productview-price">
+              ₿ {product?.id}
+            </Text>
+          </GridItem>
+          <GridItem>
+            <Grid className="productview-toy-species">
+              <GridItem span={2}>Toy Species:</GridItem>
+              <GridItem span={1}>
+                <strong>{product?.species}</strong>
+              </GridItem>
+            </Grid>
+          </GridItem>
+          <GridItem>
+            <Grid className="productview-toy-gender">
+              <GridItem span={2}>Gender Of Toy:</GridItem>
+              <GridItem span={1}>
+                <strong>{product?.gender}</strong>
+              </GridItem>
+            </Grid>
+          </GridItem>
+          <GridItem>
+            <Grid className="productview-color-selectbox">
+              <GridItem span={2}>Color:</GridItem>
+              <GridItem span={2}>
+                <input type="radio" name="toycolor" /> <span>Red</span>
+              </GridItem>
+              <GridItem span={2}>
+                <input type="radio" name="toycolor" /> <span>Green</span>
+              </GridItem>
+              <GridItem span={2}>
+                <input type="radio" name="toycolor" /> <span>yellow</span>
+              </GridItem>
+            </Grid>
+          </GridItem>
+          <GridItem>
+            <Grid className="productview-size-selectbox ">
+              <GridItem span={2}>Size:</GridItem>
+              <GridItem span={2}>
                 <input type="radio" name="toysize" /> <span>Small</span>
-              </td>
-              <td>
+              </GridItem>
+              <GridItem span={2}>
                 <input type="radio" name="toysize" /> <span>Medium</span>
-              </td>
-              <td>
+              </GridItem>
+              <GridItem span={2}>
                 <input type="radio" name="toysize" /> <span>Large</span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
+              </GridItem>
+            </Grid>
+          </GridItem>
+        </Grid>
         <div className="product-button-group">
-          <button className="buy-now-btn" onClick={buyNow}>
+          <Button variant="primary" className="buy-now-btn" onClick={buyNow}>
             Buy Now
-          </button>
-          <button className="add-to-cart-btn" onClick={addToItemCart}>
+          </Button>
+          <Button className="add-to-cart-btn" onClick={addToItemCart}>
             Add To cart
-          </button>
+          </Button>
         </div>
-      </div>
-    </div>
+      </GridItem>
+    </Grid>
   );
 }
 
