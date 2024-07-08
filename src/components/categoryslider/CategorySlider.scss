@@ -1,11 +1,9 @@
-.categoryslider-main-container{
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    justify-items: start;
-    margin-top: 44px;
-    &>div{
-        text-align: center;
-        font-weight: 600;
-        font-size: 22px;
-    }
+.categoryslider-main-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: start;
+  margin-top: 44px;
+  & > div {
+    text-align: center;
+  }
 }

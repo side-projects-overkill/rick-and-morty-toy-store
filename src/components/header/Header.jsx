@@ -4,17 +4,29 @@ import Location from "../../assets/icons/Location";
 import Help from "../../assets/icons/Help";
 import Cart from "../../assets/icons/Cart";
 import Account from "../../assets/icons/Account";
-import { SearchInput } from "@patternfly/react-core";
+import { useNavigate } from "react-router-dom";
+import { SearchInput, Text, TextVariants } from "@patternfly/react-core";
 
 function Header() {
   const [value, setValue] = React.useState("");
+
+  const navigate = useNavigate();
   const onChange = (value) => {
     setValue(value);
   };
+
   return (
     <div className="header-main-container">
       <div>
-        <h1 className="header-heading">Rick and Morty Store</h1>
+        <Text
+          component={TextVariants.h1}
+          className="header-heading"
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          Rick and Morty Store
+        </Text>
       </div>
       <div className="header-search-bar">
         <SearchInput
@@ -29,25 +41,33 @@ function Header() {
         <li>
           <button className="list-item">
             <Location />
-            <p className="list-para">Location</p>
+            <Text component={TextVariants.p} className="list-para">
+              Location
+            </Text>
           </button>
         </li>
         <li>
           <button className="list-item">
             <Help />
-            <p className="list-para">Help</p>
+            <Text component={TextVariants.p} className="list-para">
+              Help
+            </Text>
           </button>
         </li>
         <li>
-          <button className="list-item">
+          <button className="list-item" onClick={() => navigate("/cart")}>
             <Cart />
-            <p className="list-para">Cart</p>
+            <Text component={TextVariants.p} className="list-para">
+              Cart
+            </Text>
           </button>
         </li>
         <li>
           <button className="list-item">
             <Account />
-            <p className="list-para">Account</p>
+            <Text component={TextVariants.p} className="list-para">
+              Account
+            </Text>
           </button>
         </li>
       </ul>

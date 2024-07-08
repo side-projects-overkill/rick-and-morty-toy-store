@@ -1,4 +1,3 @@
-import React from "react";
 import "./PersonalizeYourCakePage.scss";
 import {
   Form,
@@ -17,8 +16,7 @@ import ProgressBar from "../../components/progressbar/ProgressBar";
 import PriceDetails from "../../components/priceDetails/PriceDetails";
 import CustomerInfo from "../../components/customerInfo/CustomerInfo";
 import ActivePill from "../../components/activePill/ActivePill";
-import InactivePill from "../../components/inactivePill/InactivePill";
-import Products from "../../components/Products/Products"
+import Products from "../../components/Products/Products";
 
 function PersonalizeYourCakePage() {
   const { products } = useSelector((state) => state.getProducts);
@@ -39,14 +37,15 @@ function PersonalizeYourCakePage() {
                 type="date"
                 id="date-time"
                 name="DateAndTime"
+                className="personalize-input"
               />
             </FormGroup>
 
             <FormGroup label="Occasion" fieldId="fier">
               <div className="occasion-type">
-                <ActivePill content="Birthday"/>
-                <InactivePill content="Anniversary"/>
-                <InactivePill content="Other"/>
+                <ActivePill content="Birthday" isActive={true} />
+                <ActivePill content="Anniversary" isActive={false} />
+                <ActivePill content="Other" isActive={false} />
               </div>
             </FormGroup>
 
@@ -55,6 +54,7 @@ function PersonalizeYourCakePage() {
                 isRequired
                 id="personal-message"
                 name="personalMessage"
+                className="personalize-input"
               />
             </FormGroup>
 
@@ -110,7 +110,7 @@ function PersonalizeYourCakePage() {
         </div>
         <div className="personalize-bottom-right-container">
           <CustomerInfo />
-          <PriceDetails btnvalue="payment"/>
+          <PriceDetails btnvalue="payment" />
         </div>
       </div>
       <div className="cart-recommended-section">

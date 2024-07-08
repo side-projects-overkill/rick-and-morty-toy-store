@@ -1,22 +1,20 @@
-import React from 'react'
-import './CategorySlider.scss'
-
+import "./CategorySlider.scss";
+import { Text, TextVariants } from "@patternfly/react-core";
 
 function CategorySlider(products) {
   return (
-    <div className='categoryslider-main-container'>
-      {
-        products && products?.products?.map((product)=>{
-          return(
-          <div key={product.id}>
-            <img src={product.image} alt="hi"/>
-            <p>{product?.species}</p>
-          </div>
-        )
-        })
-      }
+    <div className="categoryslider-main-container">
+      {products &&
+        products?.products?.map((product) => {
+          return (
+            <div key={product.id}>
+              <img src={product.image} alt="porductimage" />
+              <Text component={TextVariants.h2}>{product?.species}</Text>
+            </div>
+          );
+        })}
     </div>
-  )
+  );
 }
 
-export default CategorySlider
+export default CategorySlider;

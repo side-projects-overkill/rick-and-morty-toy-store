@@ -29,34 +29,16 @@
       margin-bottom: 14px;
     }
 
-    .confirm-details-sub-container {
-      margin-bottom: 23px;
-
-      .confirm-details-info {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 5px;
-
-        .add-coupon-text {
-          color: #0066cc;
-          background-color: #fff;
-          border: none;
-          color: #0066cc;
-          padding: 0px;
-        }
-
-        .free-text {
-          color: #1c9305;
-        }
-      }
+    .free-text {
+      color: #1c9305;
     }
 
-    .confirm-details-total {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 10px;
-      font-weight: 600;
-      font-size: 18px;
+    .add-coupon-text {
+      color: #0066cc;
+      background-color: #fff;
+      border: none;
+      color: #0066cc;
+      padding-left: 15px;
     }
 
     .confirm-details-bottom-container {

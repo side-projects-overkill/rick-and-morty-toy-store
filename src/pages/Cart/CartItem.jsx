@@ -1,61 +1,100 @@
-import React from 'react'
-import './CartItem.scss'
+import { TrashIcon } from "@patternfly/react-icons";
+import { Icon, Flex, FlexItem } from "@patternfly/react-core";
+import "./CartItem.scss";
 
-import { TrashIcon } from '@patternfly/react-icons'
-import { Icon } from '@patternfly/react-core'
-import { addToCart, removeFromCart } from '../../components/redux_api/actions/cartActions'
-import { useDispatch } from 'react-redux'
+import {
+  addToCart,
+  removeFromCart,
+} from "../../components/redux_api/actions/cartActions";
+import { useDispatch } from "react-redux";
 
-function CartItem({item}) {
-
+function CartItem({ item }) {
   const dispatch = useDispatch();
 
-  const addToItemCart =()=>{
-    dispatch(addToCart(item.id,1));
-  }
+  const addToItemCart = () => {
+    dispatch(addToCart(item.id, 1));
+  };
 
-  const reduceFromItemCart =()=>{
-    if(item.quantity<=1){
-    dispatch(removeFromCart(item.id));
+  const reduceFromItemCart = () => {
+    if (item.quantity <= 1) {
+      dispatch(removeFromCart(item.id));
+    } else {
+      dispatch(addToCart(item.id, -1));
     }
-    else{
-      dispatch(addToCart(item.id,-1));
-    }
-  }
+  };
 
-  const removeFromItemCart =()=>{
+  const removeFromItemCart = () => {
     dispatch(removeFromCart(item.id));
-  }
+  };
   return (
-    <div className='cartitem-main-container'>
-        <div className='cartitem-left-container'>
-                <img src={item.image} alt="productImage" className='cartitem-item-image'/>
-                <div className='cartitem-left-subcontainer'>
-                <h2>{item.name}</h2>
-                <p>status: {item.status}</p>
+    <>
+      <Flex className="cartitem-main-container">
+        <Flex
+          className="cartitem-left-container"
+          direction={{ default: "row" }}
+          justifyContent={{ default: "justifyContentFlexStart" }}
+          alignItems={{ default: "alignItemsFlexStart" }}
+        >
+          <FlexItem>
+            <img
+              src={item.image}
+              alt="product img"
+              className="cartitem-item-image"
+            />
+          </FlexItem>
 
-                <p>Quantity:  
-                    <button className='item-quantity-button' type='button' onClick={reduceFromItemCart}>-</button> 
-                    <button disabled>{item.quantity}</button> 
-                    <button className='item-quantity-button' type='button' onClick={addToItemCart}>+</button>
-                </p>
-                <p>Gender: <strong>{item.gender}</strong></p>
-                <p>Species: <strong>{item.species}</strong></p>
-                <p>Shipping Type: Express</p>
-                </div>
-        </div>
-        <div className='cartitem-right-container'>
-          <div style={{fontWeight:600,color:"#B8263D", fontSize:"32px"}}>
+          <FlexItem className="cartitem-left-subcontainer">
+            <h2>{item.name}</h2>
+            <p>status: {item.status}</p>
+
+            <p>
+              Quantity:
+              <button
+                className="item-quantity-button"
+                type="button"
+                onClick={reduceFromItemCart}
+              >
+                -
+              </button>
+              <button disabled>{item.quantity}</button>
+              <button
+                className="item-quantity-button"
+                type="button"
+                onClick={addToItemCart}
+              >
+                +
+              </button>
+            </p>
+            <p>
+              Gender: <strong>{item.gender}</strong>
+            </p>
+            <p>
+              Species: <strong>{item.species}</strong>
+            </p>
+            <p>Shipping Type: Express</p>
+          </FlexItem>
+        </Flex>
+        <Flex
+          className="cartitem-right-container"
+          direction={{ default: "column" }}
+          alignItems={{ default: "alignItemsFlexStart" }}
+          justifyContent={{ default: "justifyContentSpaceBetween" }}
+          align={{ default: "alignRight" }}
+        >
+          <FlexItem
+            style={{ fontWeight: 600, color: "#B8263D", fontSize: "32px" }}
+          >
             ₿ {item.id}
-          </div> 
-          <div className='cartitem-trashicon'>
+          </FlexItem>
+          <FlexItem className="cartitem-trashicon">
             <Icon onClick={removeFromItemCart}>
-              <TrashIcon/>
+              <TrashIcon />
             </Icon>
-          </div>
-        </div>
-    </div>
-  )
+          </FlexItem>
+        </Flex>
+      </Flex>
+    </>
+  );
 }
 
-export default CartItem
+export default CartItem;

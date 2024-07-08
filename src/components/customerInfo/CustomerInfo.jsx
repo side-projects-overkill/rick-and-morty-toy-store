@@ -8,12 +8,11 @@ function CustomerInfo() {
   return (
     <div className="customer-info-main-container">
       <div className="customer-info-top-container">
-        <div className="radio-contianer">
+        <div className="radio-container">
           <Radio
             id="radio-standalone"
             aria-label="Standalone input"
             name="exampleRadioStandalone"
-            isChecked="true"
           />
           <p>Sarah</p>
         </div>
@@ -27,11 +26,15 @@ function CustomerInfo() {
         </p>
         <p className="customer-phone-number">Ph no. : 1234567890</p>
         <Link to="/address">
-          <Button variant="secondary" size="sm" className="change-address-btn" isDanger>
+          <Button
+            variant="secondary"
+            size="sm"
+            className="change-address-btn"
+            isDanger
+          >
             Change Address
           </Button>
         </Link>
-        
       </div>
     </div>
   );

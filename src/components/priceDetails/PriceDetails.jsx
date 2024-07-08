@@ -1,26 +1,30 @@
 import "./PriceDetails.scss";
-import React, { useEffect, useState } from "react";
-import { Button } from "@patternfly/react-core";
+import { useEffect, useState } from "react";
+import {
+  Button,
+  Text,
+  TextVariants,
+  Grid,
+  GridItem,
+} from "@patternfly/react-core";
 import { Link } from "react-router-dom";
 import ApplyCoupon from "../../assets/icons/ApplyCoupon";
 import { useSelector } from "react-redux";
 
-
-
-function PriceDetails({btnvalue}) {
-  const [price , setPrice] = useState();
+function PriceDetails({ btnvalue }) {
+  const [price, setPrice] = useState();
   const { cartItems } = useSelector((state) => state.cart);
 
-  const totalAmount = () =>{
+  const totalAmount = () => {
     let total = 0;
     cartItems.forEach((item) => {
       total += item.id * item.quantity;
-    })
+    });
     setPrice(total);
-  }
+  };
 
   const getRoute = (btnvalue) => {
-    switch(btnvalue){
+    switch (btnvalue) {
       case "Checkout":
         return "/address";
       case "checkout":
@@ -30,11 +34,11 @@ function PriceDetails({btnvalue}) {
       default:
         return "";
     }
-  }
+  };
 
   const route = getRoute(btnvalue);
 
-  useEffect(()=>{
+  useEffect(() => {
     totalAmount();
   });
 
@@ -45,39 +49,52 @@ function PriceDetails({btnvalue}) {
         <button className="apply-coupon-heading">Apply coupon</button>
       </div>
       <div className="price-details-info-container">
-        <p className="price-details-heading">Price Details</p>
-        <div className="price-details-sub-container">
-          <div className="price-details-info">
-            <p>Cart Total</p>
-            <p>
-              <b>₿  {price}</b>
-            </p>
-          </div>
-          <div className="price-details-info">
-            <p>Coupon</p>
+        <Grid hasGutter>
+          <GridItem span={12}>
+            <Text component={TextVariants.h2}>Price Details</Text>
+          </GridItem>
+          <GridItem span={10}>
+            <Text component={TextVariants.p}>Cart Total</Text>
+          </GridItem>
+          <GridItem span={2}>
+            <Text component={TextVariants.h4}>₿ {price}</Text>
+          </GridItem>
+          <GridItem span={8}>
+            <Text component={TextVariants.p}>Coupon</Text>
+          </GridItem>
+          <GridItem span={4}>
             <button className="add-coupon-text">Add Coupon</button>
-          </div>
-          <div className="price-details-info">
-            <p>Order Total</p>
-            <p>
-              <b>₿  {price}</b>
-            </p>
-          </div>
-          <div className="price-details-info">
-            <p>Delivery Charge</p>
+          </GridItem>
+          <GridItem span={10}>
+            <Text component={TextVariants.p}>Order Total</Text>
+          </GridItem>
+          <GridItem span={2}>
+            <Text component={TextVariants.h4}>₿ {price}</Text>
+          </GridItem>
+          <GridItem span={10}>
+            <Text component={TextVariants.p}>Delivery Charge</Text>
+          </GridItem>
+          <GridItem span={2}>
             <p className="free-text">FREE</p>
-          </div>
-        </div>
-        <div className="price-details-total">
-          <p>Total Amount</p>
-          <p>₿  {price}</p>
-        </div>
-        <Link to={route}>
-          <Button variant="primary" ouiaId="Primary" className="checkout-btn">
-            Proceed to {btnvalue}
-          </Button>
-        </Link>
-        
+          </GridItem>
+          <GridItem span={10}>
+            <Text component={TextVariants.h2}>Total Amount</Text>
+          </GridItem>
+          <GridItem span={2}>
+            <Text component={TextVariants.h2}>₿ {price}</Text>
+          </GridItem>
+          <GridItem span={12}>
+            <Link to={route}>
+              <Button
+                variant="primary"
+                ouiaId="Primary"
+                className="checkout-btn"
+              >
+                Proceed to {btnvalue}
+              </Button>
+            </Link>
+          </GridItem>
+        </Grid>
       </div>
     </div>
   );

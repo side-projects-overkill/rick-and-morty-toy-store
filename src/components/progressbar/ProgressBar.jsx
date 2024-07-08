@@ -1,4 +1,3 @@
-import React from "react";
 import { ProgressStepper, ProgressStep } from "@patternfly/react-core";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./ProgressBar.scss";
@@ -11,8 +10,8 @@ const steps = [
 ];
 
 const getStepVariant = (stepPath, currentPath) => {
-  const stepIndex = steps.findIndex(step => step.path === stepPath);
-  const currentIndex = steps.findIndex(step => step.path === currentPath);
+  const stepIndex = steps.findIndex((step) => step.path === stepPath);
+  const currentIndex = steps.findIndex((step) => step.path === currentPath);
 
   if (currentIndex > stepIndex) {
     return "success";
@@ -33,7 +32,10 @@ function ProgressBar() {
 
   return (
     <div className="progress-bar-container">
-      <ProgressStepper aria-label="Progress stepper with custom icons" className="custom-progress-stepper">
+      <ProgressStepper
+        aria-label="Progress stepper with custom icons"
+        className="custom-progress-stepper"
+      >
         {steps.map((step) => (
           <ProgressStep
             key={step.path}

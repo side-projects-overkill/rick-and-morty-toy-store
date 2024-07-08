@@ -7,7 +7,7 @@ on:
   workflow_dispatch: 
     inputs: {}
   push:
-    branches: ["development"]
+    branches: ["main"]
 
 permissions:
   contents: read

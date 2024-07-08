@@ -1,54 +1,59 @@
-.productinfo-main-container{
-    display: grid;;
-    width: 80%;
-    grid-template-columns: 1fr 1fr;
-.productinfo-left-container{
-    &>img{
-        width: 70%;
-        height: 100%;
+.productinfo-main-container {
+  .productinfo-left-container {
+    & > img {
+      width: 544px;
+      height: 484px;
     }
-}
+  }
 
-.productinfo-right-container{
-    float: right;
-    .productview-price{
-        font-weight: 600;
-        color: #B8263D;
-        font-size: 32px;
-    }
-    .productview-color-row>td>input{
-        accent-color: #B8263D;
-    }
-    .productview-size-row>td>input{
-        accent-color: #B8263D;
-    }
-}
-
-.product-button-group{
-    position: relative;
-    top: 14%;
-    
-    .buy-now-btn{
-        background-color: #B8263D;
-        color: #FFFFFF;
-        width: 175px;
-        font-weight: 600;
-        font-size: 16px;
-        padding: 10px 20px 10px 20px;
-        border-radius: 5px;
-        border:none;
+  .productinfo-right-container {
+    .productview-price {
+      font-weight: 600;
+      color: #b8263d;
+      font-size: 32px;
     }
 
-    .add-to-cart-btn{
-        margin-left: 32px;
-        background-color: #FF9F00;
-        color: #FFFFFF;
-        width: 175px;
-        font-weight: 600;
-        font-size: 16px;
-        padding: 10px 20px 10px 20px;
-        border-radius: 5px;
-        border:none;
+    & input[type="radio"] {
+      accent-color: #b8263d;
     }
+
+    & > div > div {
+      padding-bottom: 12px;
+    }
+  }
+
+  .product-button-group {
+    margin-top: 50px;
+
+    .buy-now-btn {
+      --pf-v5-c-button--FontSize: 16px;
+      --pf-v5-c-button--m-primary--BackgroundColor: #b8263d;
+      color: #ffffff;
+      width: 175px;
+      font-weight: 600;
+      padding: 10px 20px;
+      --pf-v5-c-button--BorderRadius: 5px;
+    }
+
+    .add-to-cart-btn {
+      margin-left: 64px;
+      --pf-v5-c-button--m-primary--BackgroundColor: #ff9f00;
+      color: #ffffff;
+      width: 175px;
+      font-weight: 600;
+      --pf-v5-c-button--FontSize: 16px;
+      padding: 10px 20px 10px 20px;
+      border-radius: 5px;
+      border: none;
+    }
+  }
 }
+
+.pf-v5-c-table
+  tr:where(.pf-v5-c-table__tr):not(.pf-v5-c-table__expandable-row) {
+  border-block-end: none;
+}
+
+.pf-v5-c-table[class*="pf-m-grid"] {
+  --pf-v5-c-table--responsive--BorderColor: none;
 }

@@ -1,81 +1,64 @@
+.infoslider-main-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  .infoslider-left-container {
+    padding-left: 100px;
+    overflow-wrap: break-word;
+    text-align: left;
 
-.infoslider-main-container{
-    width: 100vw;
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    justify-items: center;
-    .infoslider-left-container{
-        overflow-wrap: break-word;
-        width: 80%;
-        height: 80%;
-
-        .infoslider-heading{
-            margin-top: 30px;
-            font-family: "The Nautigal", cursive;
-            font-weight: 700;
-            font-size: 70px;
-            font-style: normal;
-            background: linear-gradient(90deg,#B8263D 0%, #FEB600 70%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .infoslider-product-info{
-            font-family: "Red Hat Text", sans-serif;
-            width: 80%;
-            font-weight: 400;
-            font-style: normal;
-        }
+    .infoslider-heading {
+      margin-top: 30px;
+      margin-bottom: 20px;
+      font-family: "The Nautigal", cursive;
+      font-weight: 700;
+      font-size: 70px;
+      font-style: normal;
+      background: linear-gradient(90deg, #b8263d 0%, #feb600 70%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
-
-    .infoslider-right-container{
-        width: 80%;
-        height: 80%;
-        align-self: flex-start;
+    .infoslider-product-info {
+      width: 80%;
+      font-family: "Red Hat Text", sans-serif;
+      font-weight: 400;
+      font-style: normal;
     }
+  }
+  .infoslider-right-container {
+    padding-bottom: 30px;
+    & > img {
+      width: 500px;
+      height: 350px;
+    }
+  }
 }
-
-
-.carousel .slide img{
-    width: 350px !important;
-}
-
-.carousel .slide {
-    text-align: left!important;
-}
-
-
-
-
-
-
 
 //changing arrow buttons style
 
-
-.carousel-status{
-    display: none;
+.carousel-status {
+  display: none;
 }
 
-.control-arrow{
-    height: 30px;
-    top: 45% !important;
+.control-arrow {
+  height: 30px;
 }
 
-.control-next.control-arrow{
-    right: 8% !important;
+.carousel .control-prev.control-arrow:before {
+  content: url("../../assets/images/icon\ _chevron-left_.png");
+  border-right: none;
 }
 
-.control-prev.control-arrow:before {
-    content: url('../../assets/images/icon\ _chevron-left_.png')!important;
-    border-right: none!important;
+.carousel .control-next.control-arrow:before {
+  content: url("../../assets/images/icon\ _chevron-right_.png");
+  border-left: none;
 }
 
-.control-next.control-arrow:before {
-    content: url('../../assets/images/icon\ _chevron-right_.png')!important;
-    border-left: none!important;
+.carousel.carousel-slider .control-arrow:hover {
+  background: none;
 }
 
-.carousel.carousel-slider .control-arrow:hover{
-    background: none!important;
+.carousel.carousel-slider .control-arrow {
+  top: 30%;
 }

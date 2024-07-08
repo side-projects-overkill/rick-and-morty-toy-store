@@ -1,10 +1,14 @@
 .header-main-container {
-  width: 100%;
+  max-width: 1440px;
+  margin: auto;
   height: 70px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
 
+  .pf-v5-c-form-control > :is(input, select, textarea):focus {
+    outline-offset: 0;
+  }
 
   .header-heading {
     font-family: "The Nautigal", cursive;
@@ -17,39 +21,37 @@
     background-clip: text;
   }
 
-
-  .header-search-bar{
+  .header-search-bar {
     width: 30%;
 
-    .header-search{
-      background-color: #F4F4F4;
+    .header-search {
+      background-color: #f4f4f4;
     }
     
     
   }
 
-  .header-components-container{
+  .header-components-container {
     display: flex;
     list-style-type: none;
     justify-content: space-evenly;
     width: 15%;
 
-    .list-item{
-        display: flex;
-        flex-direction: column; 
-        align-items: center;
-        background-color: #fff;
-        border: none;
-        
-        .list-para{
-            margin-top: 4px;
-            margin-bottom: 0px;
-            font-family: "Roboto Mono", sans-serif;
-            font-weight: 500;
-            font-size: 16px;
-            color: #841F3F;
-        }
+    .list-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #fff;
+      border: none;
+
+      .list-para {
+        margin-top: 4px;
+        margin-bottom: 0px;
+        font-family: "Roboto Mono", sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        color: #841f3f;
+      }
     }
-    
   }
 }

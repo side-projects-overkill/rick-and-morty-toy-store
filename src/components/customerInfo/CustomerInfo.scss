@@ -1,35 +1,33 @@
-.customer-info-main-container{
-    width: 442px;
-    height: auto;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    padding: 17px;
-    margin-bottom: 15px;
+.customer-info-main-container {
+  width: 442px;
+  height: auto;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 17px;
+  margin-bottom: 15px;
 
-    .customer-info-top-container{
-        display: flex;
-        justify-content: space-between;
+  .customer-info-top-container {
+    display: flex;
+    justify-content: space-between;
 
-        .radio-contianer{
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 60px;
-            margin-bottom: 10px;
-        }
+    .radio-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 60px;
+      margin-bottom: 10px;
     }
+  }
 
-    .customer-info-bottom-container{
-        padding-top: 10px;
-    }
+  .customer-info-bottom-container {
+    padding-top: 10px;
+  }
 
-    .customer-address{
-        margin-bottom: 10px;
-    }
+  .customer-address {
+    margin-bottom: 10px;
+  }
 
-    .change-address-btn{
-        font-weight: 600;
-        margin-top: 15px;
-    }
-        
-    
+  .change-address-btn {
+    font-weight: 600;
+    margin-top: 15px;
+  }
 }
