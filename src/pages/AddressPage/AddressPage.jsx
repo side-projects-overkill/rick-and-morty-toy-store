@@ -6,8 +6,8 @@ import {
   TextArea,
   ActionGroup,
   Button,
-  Flex,
-  FlexItem,
+  Grid,
+  GridItem,
 } from "@patternfly/react-core";
 import { useSelector } from "react-redux";
 import { Formik } from "formik";
@@ -17,7 +17,6 @@ import deliveryAddressSchema from "./DeliveryAddressSchema";
 import ProgressBar from "../../components/progressbar/ProgressBar";
 import PriceDetails from "../../components/priceDetails/PriceDetails";
 import ActivePill from "../../components/activePill/ActivePill";
-import InactivePill from "../../components/inactivePill/InactivePill";
 import Products from "../../components/Products/Products";
 
 function AddressPage() {
@@ -43,7 +42,6 @@ function AddressPage() {
             }}
             validationSchema={deliveryAddressSchema}
             onSubmit={(values, { setSubmitting }) => {
-              console.log(values);
               setSubmitting(false);
             }}
           >
@@ -56,102 +54,104 @@ function AddressPage() {
               errors,
             }) => (
               <Form onSubmit={handleSubmit}>
-                <FormGroup
-                  label="Recipient Name"
-                  fieldId="recipient-name"
-                  
-                  helperTextInvalid={
-                    errors.recipientName &&
-                    touched.recipientName &&
-                    errors.recipientName
-                  }
-                  validated={
-                    errors.recipientName && touched.recipientName
-                      ? "error"
-                      : "default"
-                  }
-                >
-                  <TextInput
-                    type="text"
-                    id="recipient-name"
-                    name="recipientName"
-                    className="recipient-field"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.recipientName}
-                    validated={
-                      errors.recipientName && touched.recipientName
-                        ? "error"
-                        : "default"
-                    }
-                  />
-                </FormGroup>
-
-                <FormGroup
-                  label="Recipient Address"
-                  fieldId="recipient-address"
-                  helperTextInvalid={
-                    errors.recipientAddress &&
-                    touched.recipientAddress &&
-                    errors.recipientAddress
-                  }
-                  validated={
-                    errors.recipientAddress && touched.recipientAddress
-                      ? "error"
-                      : "default"
-                  }
-                >
-                  <TextArea
-                    id="recipient-address"
-                    name="recipientAddress"
-                    className="recipient-field"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.recipientAddress}
-                    validated={
-                      errors.recipientAddress && touched.recipientAddress
-                        ? "error"
-                        : "default"
-                    }
-                  />
-                </FormGroup>
-
-                <FormGroup
-                  label="Landmark"
-                  fieldId="recipient-landmark"
-                  helperTextInvalid={
-                    errors.recipientLandmark &&
-                    touched.recipientLandmark &&
-                    errors.recipientLandmark
-                  }
-                  validated={
-                    errors.recipientLandmark && touched.recipientLandmark
-                      ? "error"
-                      : "default"
-                  }
-                >
-                  <TextInput
-                    type="text"
-                    id="recipient-landmark"
-                    name="recipientLandmark"
-                    className="recipient-field"
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.recipientLandmark}
-                    validated={
-                      errors.recipientLandmark && touched.recipientLandmark
-                        ? "error"
-                        : "default"
-                    }
-                  />
-                </FormGroup>
-
-                <Flex>
-                  <FlexItem flex={{ default: "flex_1" }}>
+                <Grid hasGutter>
+                  <GridItem span={12}>
+                    <FormGroup
+                      label="Recipient Name"
+                      fieldId="recipient-name"
+                      helpertextinvalid={
+                        errors.recipientName &&
+                        touched.recipientName &&
+                        errors.recipientName
+                      }
+                      validated={
+                        errors.recipientName && touched.recipientName
+                          ? "error"
+                          : "default"
+                      }
+                    >
+                      <TextInput
+                        type="text"
+                        id="recipient-name"
+                        name="recipientName"
+                        className="recipient-field"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.recipientName}
+                        validated={
+                          errors.recipientName && touched.recipientName
+                            ? "error"
+                            : "default"
+                        }
+                      />
+                    </FormGroup>
+                  </GridItem>
+                  <GridItem span={12}>
+                    <FormGroup
+                      label="Recipient Address"
+                      fieldId="recipient-address"
+                      helpertextinvalid={
+                        errors.recipientAddress &&
+                        touched.recipientAddress &&
+                        errors.recipientAddress
+                      }
+                      validated={
+                        errors.recipientAddress && touched.recipientAddress
+                          ? "error"
+                          : "default"
+                      }
+                    >
+                      <TextArea
+                        id="recipient-address"
+                        name="recipientAddress"
+                        className="recipient-field"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.recipientAddress}
+                        validated={
+                          errors.recipientAddress && touched.recipientAddress
+                            ? "error"
+                            : "default"
+                        }
+                      />
+                    </FormGroup>
+                  </GridItem>
+                  <GridItem span={12}>
+                    <FormGroup
+                      label="Landmark"
+                      fieldId="recipient-landmark"
+                      helpertextinvalid={
+                        errors.recipientLandmark &&
+                        touched.recipientLandmark &&
+                        errors.recipientLandmark
+                      }
+                      validated={
+                        errors.recipientLandmark && touched.recipientLandmark
+                          ? "error"
+                          : "default"
+                      }
+                    >
+                      <TextInput
+                        type="text"
+                        id="recipient-landmark"
+                        name="recipientLandmark"
+                        className="recipient-field"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.recipientLandmark}
+                        validated={
+                          errors.recipientLandmark && touched.recipientLandmark
+                            ? "error"
+                            : "default"
+                        }
+                      />
+                    </FormGroup>
+                  </GridItem>
+                  <GridItem span={6}>
                     <FormGroup
                       label="Pincode"
                       fieldId="recipient-pincode"
-                      helperTextInvalid={
+                      helpertextinvalid={
                         errors.recipientPincode &&
                         touched.recipientPincode &&
                         errors.recipientPincode
@@ -177,12 +177,12 @@ function AddressPage() {
                         }
                       />
                     </FormGroup>
-                  </FlexItem>
-                  <FlexItem flex={{ default: "flex_1" }}>
+                  </GridItem>
+                  <GridItem span={6}>
                     <FormGroup
                       label="City"
                       fieldId="recipient-city"
-                      helperTextInvalid={
+                      helpertextinvalid={
                         errors.recipientCity &&
                         touched.recipientCity &&
                         errors.recipientCity
@@ -208,15 +208,12 @@ function AddressPage() {
                         }
                       />
                     </FormGroup>
-                  </FlexItem>
-                </Flex>
-
-                <Flex>
-                  <FlexItem flex={{ default: "flex_1" }}>
+                  </GridItem>
+                  <GridItem span={6}>
                     <FormGroup
                       label="Mobile Number"
                       fieldId="recipient-mobile-number"
-                      helperTextInvalid={
+                      helpertextinvalid={
                         errors.recipientMobile &&
                         touched.recipientMobile &&
                         errors.recipientMobile
@@ -242,12 +239,12 @@ function AddressPage() {
                         }
                       />
                     </FormGroup>
-                  </FlexItem>
-                  <FlexItem flex={{ default: "flex_1" }}>
+                  </GridItem>
+                  <GridItem span={6}>
                     <FormGroup
                       label="Alternate Mobile Number"
                       fieldId="alternate-mobile-number"
-                      helperTextInvalid={
+                      helpertextinvalid={
                         errors.recipientAlternateMobile &&
                         touched.recipientAlternateMobile &&
                         errors.recipientAlternateMobile
@@ -275,28 +272,32 @@ function AddressPage() {
                         }
                       />
                     </FormGroup>
-                  </FlexItem>
-                </Flex>
+                  </GridItem>
 
-                <FormGroup label="Address Type" fieldId="address-type">
-                  <div className="address-type-container">
-                    <ActivePill content="Home" />
-                    <InactivePill content="Work" />
-                    <InactivePill content="Friends & Family" />
-                    <InactivePill content="Other" />
-                  </div>
-                </FormGroup>
+                  <GridItem span={12}>
+                    <FormGroup label="Address Type" fieldId="address-type">
+                      <div className="address-type-container">
+                        <ActivePill content="Home" isActive={true}/>
+                        <ActivePill content="Work" isActive={false}/>
+                        <ActivePill content="Friends & Family" isActive={false}/>
+                        <ActivePill content="Other" isActive={false}/>
+                      </div>
+                    </FormGroup>
+                  </GridItem>
 
-                <ActionGroup>
-                  <Button variant="danger" type="submit" isDisabled={false}>
-                    Save
-                  </Button>
-                  <Link to="/cart">
-                    <Button variant="secondary" isDanger>
-                      Cancel
-                    </Button>
-                  </Link>
-                </ActionGroup>
+                  <GridItem span={6}>
+                    <ActionGroup>
+                      <Button variant="danger" type="submit" isDisabled={false}>
+                        Save
+                      </Button>
+                      <Link to="/cart">
+                        <Button variant="secondary" isDanger>
+                          Cancel
+                        </Button>
+                      </Link>
+                    </ActionGroup>
+                  </GridItem>
+                </Grid>
               </Form>
             )}
           </Formik>

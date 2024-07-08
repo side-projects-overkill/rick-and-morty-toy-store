@@ -1,9 +1,19 @@
 .active-pill-container {
   border: 2px solid #b8263d;
   background: linear-gradient(90deg, #b8263d 0%, #feb600 70%);
-  height: 40px;
+  height: 30px;
   display: inline-block;
-  padding-top: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 16px;
+}
+
+.inactive-pill-container {
+  border: 2px solid #b8263d;
+  background: #fff;
+  color: #b8263d;
+  height: 30px;
+  display: inline-block;
   padding-left: 10px;
   padding-right: 10px;
   font-size: 16px;

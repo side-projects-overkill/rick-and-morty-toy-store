@@ -93,61 +93,6 @@ function CartItem({ item }) {
           </FlexItem>
         </Flex>
       </Flex>
-
-      {/* <Grid className="cartitem-main-container">
-      <GridItem className="cartitem-left-container" span={8}>
-        <Flex direction={{ default: 'row'}} justifyContent={{ default: 'justifyContentFlexStart' }} alignItems={{default: 'alignItemsFlexStart'}}>
-          <FlexItem>
-            <img
-              src={item.image}
-              alt="product img"
-              className="cartitem-item-image"
-            />
-          </FlexItem>
-
-          <FlexItem className="cartitem-left-subcontainer">
-            <h2>{item.name}</h2>
-            <p>status: {item.status}</p>
-
-            <p>
-              Quantity:
-              <button
-                className="item-quantity-button"
-                type="button"
-                onClick={reduceFromItemCart}
-              >
-                -
-              </button>
-              <button disabled>{item.quantity}</button>
-              <button
-                className="item-quantity-button"
-                type="button"
-                onClick={addToItemCart}
-              >
-                +
-              </button>
-            </p>
-            <p>
-              Gender: <strong>{item.gender}</strong>
-            </p>
-            <p>
-              Species: <strong>{item.species}</strong>
-            </p>
-            <p>Shipping Type: Express</p>
-          </FlexItem>
-        </Flex>
-      </GridItem>
-      <GridItem className="cartitem-right-container" span={4}>
-        <div style={{ fontWeight: 600, color: "#B8263D", fontSize: "32px" }}>
-          ₿ {item.id}
-        </div>
-        <div className="cartitem-trashicon">
-          <Icon onClick={removeFromItemCart}>
-            <TrashIcon />
-          </Icon>
-        </div>
-      </GridItem>
-    </Grid> */}
     </>
   );
 }

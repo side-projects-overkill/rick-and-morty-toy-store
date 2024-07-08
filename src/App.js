@@ -1,6 +1,7 @@
 import React from "react";
 import { TextContent } from "@patternfly/react-core";
-import "./App.css";
+import { store } from "./components/redux_api/store.js";
+import { Provider } from "react-redux";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
@@ -11,9 +12,8 @@ import PaymentConfirmationPage from "./pages/PaymentConfirmationPage/PaymentConf
 import ProductDetail from "./components/details/ProductDetail";
 import Cart from "./pages/Cart/Cart.jsx";
 import Home from "./pages/Home/Home.jsx";
+import "./App.css";
 
-import { store } from "./components/redux_api/store.js";
-import { Provider } from "react-redux";
 
 const routes = [
   {
@@ -51,9 +51,9 @@ function App() {
     <>
       <Provider store={store}>
         <div className="app">
-          <Header />
-          <TextContent>
-            <Router>
+          <Router>
+            <Header />
+            <TextContent>
               <Routes>
                 {routes.map((route, index) => {
                   return (
@@ -65,9 +65,9 @@ function App() {
                   );
                 })}
               </Routes>
-            </Router>
-          </TextContent>
-          <Footer />
+            </TextContent>
+            <Footer />
+          </Router>
         </div>
       </Provider>
     </>

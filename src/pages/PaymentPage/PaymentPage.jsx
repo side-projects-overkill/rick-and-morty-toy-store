@@ -4,18 +4,16 @@ import {
   FormGroup,
   TextInput,
   Button,
-  Flex,
-  FlexItem,
 } from "@patternfly/react-core";
-import CreditCardImage from "../../assets/images/credit-card-image.png";
 import { Formik, ErrorMessage } from "formik";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { Grid, GridItem } from "@patternfly/react-core";
+import CreditCardImage from "../../assets/images/credit-card-image.png";
 import PaymentFormSchema from "./PaymentFormSchema";
 import ProgressBar from "../../components/progressbar/ProgressBar";
 import ConfirmedDetails from "./ConfirmedDetails";
 import CustomerInfo from "../../components/customerInfo/CustomerInfo";
-import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-
 import "./PaymentPage.scss";
 
 function PaymentPage() {
@@ -53,14 +51,14 @@ function PaymentPage() {
       <div className="payment-bottom-container">
         <div className="payment-bottom-left-container">
           <div className="payment-method-container">
-            {paymentOptions.map((option) => {
+            {paymentOptions.map((option, index) => {
               return (
-                <>
-                  <div className="payment-method-list-item">
+                <div key={index}>
+                  <div className="payment-method-list-item" >
                     <p>{option}</p>
                   </div>
                   <hr />
-                </>
+                </div>
               );
             })}
           </div>
@@ -89,79 +87,79 @@ function PaymentPage() {
                 errors,
               }) => (
                 <Form onSubmit={handleSubmit}>
-                  <FlexItem flex={{ default: "flex_1" }}>
-                    <FormGroup
-                      fieldId="card-number"
-                      helperTextInvalid={
-                        touched.cardNumber && errors.cardNumber
-                      }
-                      validated={
-                        touched.cardNumber && errors.cardNumber
-                          ? "error"
-                          : "default"
-                      }
-                    >
-                      <TextInput
-                        type="text"
-                        id="card-number"
-                        name="cardNumber"
-                        placeholder="Card Number"
-                        className="payment-input"
-                        value={values.cardNumber}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
+                  <Grid hasGutter>
+                    <GridItem span={12}>
+                      <FormGroup
+                        fieldId="card-number"
+                        helpertextinvalid={
+                          touched.cardNumber && errors.cardNumber
+                        }
                         validated={
                           touched.cardNumber && errors.cardNumber
                             ? "error"
                             : "default"
                         }
-                      />
-                      <ErrorMessage
-                        name="cardNumber"
-                        component="div"
-                        className="pf-c-form__helper-text pf-m-error"
-                      />
-                    </FormGroup>
-                  </FlexItem>
-                  <FlexItem flex={{ default: "flex_1" }}>
-                    <FormGroup
-                      fieldId="name-on-card"
-                      helperTextInvalid={
-                        touched.nameOnCard && errors.nameOnCard
-                      }
-                      validated={
-                        touched.nameOnCard && errors.nameOnCard
-                          ? "error"
-                          : "default"
-                      }
-                    >
-                      <TextInput
-                        type="text"
-                        id="name-on-card"
-                        name="nameOnCard"
-                        placeholder="Name on Card"
-                        className="payment-input"
-                        value={values.nameOnCard}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
+                      >
+                        <TextInput
+                          type="text"
+                          id="card-number"
+                          name="cardNumber"
+                          placeholder="Card Number"
+                          className="payment-input"
+                          value={values.cardNumber}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          validated={
+                            touched.cardNumber && errors.cardNumber
+                              ? "error"
+                              : "default"
+                          }
+                        />
+                        <ErrorMessage
+                          name="cardNumber"
+                          component="div"
+                          className="pf-c-form__helper-text pf-m-error"
+                        />
+                      </FormGroup>
+                    </GridItem>
+                    <GridItem span={12}>
+                      <FormGroup
+                        fieldId="name-on-card"
+                        helpertextinvalid={
+                          touched.nameOnCard && errors.nameOnCard
+                        }
                         validated={
                           touched.nameOnCard && errors.nameOnCard
                             ? "error"
                             : "default"
                         }
-                      />
-                      <ErrorMessage
-                        name="nameOnCard"
-                        component="div"
-                        className="pf-c-form__helper-text pf-m-error"
-                      />
-                    </FormGroup>
-                  </FlexItem>
-                  <Flex>
-                    <FlexItem flex={{ default: "flex_1" }}>
+                      >
+                        <TextInput
+                          type="text"
+                          id="name-on-card"
+                          name="nameOnCard"
+                          placeholder="Name on Card"
+                          className="payment-input"
+                          value={values.nameOnCard}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          validated={
+                            touched.nameOnCard && errors.nameOnCard
+                              ? "error"
+                              : "default"
+                          }
+                        />
+                        <ErrorMessage
+                          name="nameOnCard"
+                          component="div"
+                          className="pf-c-form__helper-text pf-m-error"
+                        />
+                      </FormGroup>
+                    </GridItem>
+                    <GridItem span={5}>
                       <FormGroup
                         fieldId="expiry-date"
-                        helperTextInvalid={
+                        helpertextinvalid={
                           touched.expiryDate && errors.expiryDate
                         }
                         validated={
@@ -191,11 +189,11 @@ function PaymentPage() {
                           className="pf-c-form__helper-text pf-m-error"
                         />
                       </FormGroup>
-                    </FlexItem>
-                    <FlexItem flex={{ default: "flex_1" }}>
+                    </GridItem>
+                    <GridItem span={6}>
                       <FormGroup
                         fieldId="card-cvv"
-                        helperTextInvalid={touched.cardCVV && errors.cardCVV}
+                        helpertextinvalid={touched.cardCVV && errors.cardCVV}
                         validated={
                           touched.cardCVV && errors.cardCVV
                             ? "error"
@@ -223,22 +221,22 @@ function PaymentPage() {
                           className="pf-c-form__helper-text pf-m-error"
                         />
                       </FormGroup>
-                    </FlexItem>
-                    <FlexItem>
+                    </GridItem>
+                    <GridItem span={1}>
                       <img src={CreditCardImage} alt="credit-card-image" />
-                    </FlexItem>
-                  </Flex>
-                  <p>* Your card information will not be saved</p>
-                  <FlexItem>
-                    <Button
-                      type="submit"
-                      variant="primary"
-                      ouiaId="Primary"
-                      className="pay-btn"
-                    >
-                      Pay ₿{price} Now
-                    </Button>
-                  </FlexItem>
+                    </GridItem>
+                    <p>* Your card information will not be saved</p>
+                    <GridItem span={12}>
+                      <Button
+                        type="submit"
+                        variant="primary"
+                        ouiaId="Primary"
+                        className="pay-btn"
+                      >
+                        Pay ₿{price} Now
+                      </Button>
+                    </GridItem>
+                  </Grid>
                 </Form>
               )}
             </Formik>

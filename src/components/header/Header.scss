@@ -1,9 +1,14 @@
 .header-main-container {
-  width: 100%;
+  max-width: 1440px;
+  margin: auto;
   height: 70px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
+
+  .pf-v5-c-form-control > :is(input, select, textarea):focus {
+    outline-offset: 0;
+  }
 
   .header-heading {
     font-family: "The Nautigal", cursive;

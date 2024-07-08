@@ -16,7 +16,6 @@ import ProgressBar from "../../components/progressbar/ProgressBar";
 import PriceDetails from "../../components/priceDetails/PriceDetails";
 import CustomerInfo from "../../components/customerInfo/CustomerInfo";
 import ActivePill from "../../components/activePill/ActivePill";
-import InactivePill from "../../components/inactivePill/InactivePill";
 import Products from "../../components/Products/Products";
 
 function PersonalizeYourCakePage() {
@@ -44,9 +43,9 @@ function PersonalizeYourCakePage() {
 
             <FormGroup label="Occasion" fieldId="fier">
               <div className="occasion-type">
-                <ActivePill content="Birthday" />
-                <InactivePill content="Anniversary" />
-                <InactivePill content="Other" />
+                <ActivePill content="Birthday" isActive={true}/>
+                <ActivePill content="Anniversary" isActive={false}/>
+                <ActivePill content="Other" isActive={false}/>
               </div>
             </FormGroup>
 

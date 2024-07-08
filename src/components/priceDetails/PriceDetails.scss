@@ -25,34 +25,16 @@
     display: flex;
     flex-direction: column;
 
-    .price-details-sub-container {
-      margin-bottom: 23px;
-
-      .price-details-info {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 5px;
-
-        .add-coupon-text {
-          color: #0066cc;
-          background-color: #fff;
-          border: none;
-          color: #0066cc;
-          padding: 0px;
-        }
-
-        .free-text {
-          color: #1c9305;
-        }
-      }
+    .add-coupon-text {
+      color: #0066cc;
+      background-color: #fff;
+      border: none;
+      color: #0066cc;
+      padding-left: 15px;
     }
 
-    .price-details-total {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 30px;
-      font-weight: 600;
-      font-size: 18px;
+    .free-text {
+      color: #1c9305;
     }
 
     .checkout-btn {

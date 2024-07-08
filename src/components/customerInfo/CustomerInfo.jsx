@@ -13,7 +13,6 @@ function CustomerInfo() {
             id="radio-standalone"
             aria-label="Standalone input"
             name="exampleRadioStandalone"
-            isChecked="true"
           />
           <p>Sarah</p>
         </div>

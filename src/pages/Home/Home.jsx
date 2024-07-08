@@ -1,15 +1,15 @@
 import React, { useEffect } from "react";
 import "./Home.scss";
+import { getProducts } from "../../components/redux_api/actions/productActions";
+import { useDispatch, useSelector } from "react-redux";
 import { Text, TextVariants } from "@patternfly/react-core";
 import InfoSlider from "../../components/Infoslider/InfoSlider";
 import Products from "../../components/Products/Products";
 import CategorySlider from "../../components/categoryslider/CategorySlider";
 import ActivePill from "../../components/activePill/ActivePill";
-import InactivePill from "../../components/inactivePill/InactivePill";
 
-import { getProducts } from "../../components/redux_api/actions/productActions";
 
-import { useDispatch, useSelector } from "react-redux";
+
 
 function Home() {
   const { products } = useSelector((state) => state.getProducts);
@@ -27,9 +27,11 @@ function Home() {
           <div>
             <Text component={TextVariants.h1}>Want delivery today?</Text>
             <div className="delivery-container">
-              <ActivePill content="All" />
+              <ActivePill content="All" isActive={true}/>
               {products?.results?.slice(0, 10).map((product) => {
-                return <InactivePill content={product?.name} key={product?.id} />;
+                return (
+                  <ActivePill content={product?.name} key={product?.id} isActive={false}/>
+                );
               })}
             </div>
           </div>
