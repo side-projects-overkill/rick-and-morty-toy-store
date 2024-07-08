@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 import { SearchInput, Text, TextVariants } from "@patternfly/react-core";
 
 function Header() {
-
   const [value, setValue] = React.useState("");
 
   const navigate = useNavigate();

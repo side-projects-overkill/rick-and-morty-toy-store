@@ -8,9 +8,6 @@ import Products from "../../components/Products/Products";
 import CategorySlider from "../../components/categoryslider/CategorySlider";
 import ActivePill from "../../components/activePill/ActivePill";
 
-
-
-
 function Home() {
   const { products } = useSelector((state) => state.getProducts);
   const dispatch = useDispatch();
@@ -27,10 +24,14 @@ function Home() {
           <div>
             <Text component={TextVariants.h1}>Want delivery today?</Text>
             <div className="delivery-container">
-              <ActivePill content="All" isActive={true}/>
+              <ActivePill content="All" isActive={true} />
               {products?.results?.slice(0, 10).map((product) => {
                 return (
-                  <ActivePill content={product?.name} key={product?.id} isActive={false}/>
+                  <ActivePill
+                    content={product?.name}
+                    key={product?.id}
+                    isActive={false}
+                  />
                 );
               })}
             </div>

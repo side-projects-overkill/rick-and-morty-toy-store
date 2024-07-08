@@ -43,9 +43,9 @@ function PersonalizeYourCakePage() {
 
             <FormGroup label="Occasion" fieldId="fier">
               <div className="occasion-type">
-                <ActivePill content="Birthday" isActive={true}/>
-                <ActivePill content="Anniversary" isActive={false}/>
-                <ActivePill content="Other" isActive={false}/>
+                <ActivePill content="Birthday" isActive={true} />
+                <ActivePill content="Anniversary" isActive={false} />
+                <ActivePill content="Other" isActive={false} />
               </div>
             </FormGroup>
 

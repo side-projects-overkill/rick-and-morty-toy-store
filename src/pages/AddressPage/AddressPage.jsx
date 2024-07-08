@@ -277,10 +277,13 @@ function AddressPage() {
                   <GridItem span={12}>
                     <FormGroup label="Address Type" fieldId="address-type">
                       <div className="address-type-container">
-                        <ActivePill content="Home" isActive={true}/>
-                        <ActivePill content="Work" isActive={false}/>
-                        <ActivePill content="Friends & Family" isActive={false}/>
-                        <ActivePill content="Other" isActive={false}/>
+                        <ActivePill content="Home" isActive={true} />
+                        <ActivePill content="Work" isActive={false} />
+                        <ActivePill
+                          content="Friends & Family"
+                          isActive={false}
+                        />
+                        <ActivePill content="Other" isActive={false} />
                       </div>
                     </FormGroup>
                   </GridItem>

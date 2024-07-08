@@ -1,10 +1,5 @@
 import { useState, useEffect } from "react";
-import {
-  Form,
-  FormGroup,
-  TextInput,
-  Button,
-} from "@patternfly/react-core";
+import { Form, FormGroup, TextInput, Button } from "@patternfly/react-core";
 import { Formik, ErrorMessage } from "formik";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -54,7 +49,7 @@ function PaymentPage() {
             {paymentOptions.map((option, index) => {
               return (
                 <div key={index}>
-                  <div className="payment-method-list-item" >
+                  <div className="payment-method-list-item">
                     <p>{option}</p>
                   </div>
                   <hr />

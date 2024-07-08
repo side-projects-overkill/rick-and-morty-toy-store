@@ -23,7 +23,11 @@ function Products(products) {
             >
               <Card ouiaId="BasicCard">
                 <CardBody>
-                  <img src={product.image} alt="productimage" className="card-image" />
+                  <img
+                    src={product.image}
+                    alt="productimage"
+                    className="card-image"
+                  />
                 </CardBody>
                 <CardFooter>
                   <div className="product-name-cost">
