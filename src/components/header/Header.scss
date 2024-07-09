@@ -1,7 +1,7 @@
 .header-main-container {
   max-width: 1440px;
   margin: auto;
-  height: 70px;
+  height: 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -36,6 +36,19 @@
     list-style-type: none;
     justify-content: space-evenly;
     width: 15%;
+
+    .pf-v5-c-badge.pf-m-unread {
+      --pf-v5-c-badge--Color: #fff;
+      --pf-v5-c-badge--BackgroundColor: #b8263d;
+      --pf-v5-c-badge--PaddingRight: 0px;
+      --pf-v5-c-badge--PaddingLeft: 0px;
+      --pf-v5-c-badge--MinWidth:20px;
+      border-radius:50%;
+      position: absolute;
+      top: 7px;
+      margin-left: 25px;
+      z-index: -1;
+    }
 
     .list-item {
       display: flex;

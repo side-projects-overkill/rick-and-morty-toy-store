@@ -1,15 +1,16 @@
 import "./Header.scss";
-import React from "react";
+import { useState } from "react";
 import Location from "../../assets/icons/Location";
 import Help from "../../assets/icons/Help";
 import Cart from "../../assets/icons/Cart";
 import Account from "../../assets/icons/Account";
 import { useNavigate } from "react-router-dom";
-import { SearchInput, Text, TextVariants } from "@patternfly/react-core";
+import { SearchInput, Text, TextVariants, Badge } from "@patternfly/react-core";
+import { useCartContext } from "../../contexts/CartContext";
 
 function Header() {
-  const [value, setValue] = React.useState("");
-
+  const [value, setValue] = useState("");
+  const { cartItems } = useCartContext();
   const navigate = useNavigate();
   const onChange = (value) => {
     setValue(value);
@@ -56,6 +57,11 @@ function Header() {
         </li>
         <li>
           <button className="list-item" onClick={() => navigate("/cart")}>
+            {cartItems?.length > 0 && (
+              <Badge key={1} screenReaderText="Unread Messages">
+                {cartItems.length}
+              </Badge>
+            )}
             <Cart />
             <Text component={TextVariants.p} className="list-para">
               Cart

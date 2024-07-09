@@ -9,15 +9,17 @@ import {
 } from "@patternfly/react-core";
 import { Link } from "react-router-dom";
 import ApplyCoupon from "../../assets/icons/ApplyCoupon";
-import { useSelector } from "react-redux";
+import { useCartContext } from "../../contexts/CartContext";
 
 function PriceDetails({ btnvalue }) {
   const [price, setPrice] = useState();
-  const { cartItems } = useSelector((state) => state.cart);
+  const { cartItems } = useCartContext();
+  const location = useLocation();
+  const isPaymentRoute = location.pathname === "/payment";
 
   const totalAmount = () => {
     let total = 0;
-    cartItems.forEach((item) => {
+    cartItems?.forEach((item) => {
       total += item.id * item.quantity;
     });
     setPrice(total);

@@ -11,15 +11,15 @@ import {
   TextInputGroupMain,
   Checkbox,
 } from "@patternfly/react-core";
-import { useSelector } from "react-redux";
 import ProgressBar from "../../components/progressbar/ProgressBar";
 import PriceDetails from "../../components/priceDetails/PriceDetails";
 import CustomerInfo from "../../components/customerInfo/CustomerInfo";
 import ActivePill from "../../components/activePill/ActivePill";
 import Products from "../../components/Products/Products";
+import { useProductContext } from "../../contexts/ProductContext";
 
 function PersonalizeYourCakePage() {
-  const { products } = useSelector((state) => state.getProducts);
+  const { products } = useProductContext();
   return (
     <div className="personalize-main-container">
       <ProgressBar />
@@ -30,7 +30,7 @@ function PersonalizeYourCakePage() {
             <FormGroup
               label="Delivery Date & Time"
               isRequired
-              fieldId="date-time"
+              id="date-time"
             >
               <TextInput
                 isRequired
@@ -41,7 +41,7 @@ function PersonalizeYourCakePage() {
               />
             </FormGroup>
 
-            <FormGroup label="Occasion" fieldId="fier">
+            <FormGroup label="Occasion" id="fier">
               <div className="occasion-type">
                 <ActivePill content="Birthday" isActive={true} />
                 <ActivePill content="Anniversary" isActive={false} />
@@ -49,7 +49,7 @@ function PersonalizeYourCakePage() {
               </div>
             </FormGroup>
 
-            <FormGroup label="Personal Message" fieldId="personal-message">
+            <FormGroup label="Personal Message" id="personal-message">
               <TextArea
                 isRequired
                 id="personal-message"
@@ -75,7 +75,7 @@ function PersonalizeYourCakePage() {
 
             <Flex>
               <FlexItem flex={{ default: "flex_1" }}>
-                <FormGroup label="Name" fieldId="name">
+                <FormGroup label="Name" id="name">
                   <TextInputGroup isDisabled>
                     <TextInputGroupMain
                       value="Sarah"
@@ -87,7 +87,7 @@ function PersonalizeYourCakePage() {
               </FlexItem>
 
               <FlexItem flex={{ default: "flex_1" }}>
-                <FormGroup label="Phone Number" fieldId="phone-number">
+                <FormGroup label="Phone Number" id="phone-number">
                   <TextInputGroup isDisabled>
                     <TextInputGroupMain
                       value="1234567890"
@@ -115,7 +115,7 @@ function PersonalizeYourCakePage() {
       </div>
       <div className="cart-recommended-section">
         <h2>Recommended Toys</h2>
-        <Products products={products?.results?.slice(7, 11)} />
+        <Products products={products?.slice(7, 11)} />
       </div>
     </div>
   );

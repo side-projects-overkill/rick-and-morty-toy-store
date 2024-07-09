@@ -9,7 +9,6 @@ import {
   Grid,
   GridItem,
 } from "@patternfly/react-core";
-import { useSelector } from "react-redux";
 import { Formik } from "formik";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -18,9 +17,10 @@ import ProgressBar from "../../components/progressbar/ProgressBar";
 import PriceDetails from "../../components/priceDetails/PriceDetails";
 import ActivePill from "../../components/activePill/ActivePill";
 import Products from "../../components/Products/Products";
+import { useProductContext } from "../../contexts/ProductContext";
 
 function AddressPage() {
-  const { products } = useSelector((state) => state.getProducts);
+  const { products } = useProductContext();
 
   const navigate = useNavigate();
 
@@ -58,7 +58,7 @@ function AddressPage() {
                   <GridItem span={12}>
                     <FormGroup
                       label="Recipient Name"
-                      fieldId="recipient-name"
+                      id="recipient-name"
                       helpertextinvalid={
                         errors.recipientName &&
                         touched.recipientName &&
@@ -89,7 +89,7 @@ function AddressPage() {
                   <GridItem span={12}>
                     <FormGroup
                       label="Recipient Address"
-                      fieldId="recipient-address"
+                      id="recipient-address"
                       helpertextinvalid={
                         errors.recipientAddress &&
                         touched.recipientAddress &&
@@ -119,7 +119,7 @@ function AddressPage() {
                   <GridItem span={12}>
                     <FormGroup
                       label="Landmark"
-                      fieldId="recipient-landmark"
+                      id="recipient-landmark"
                       helpertextinvalid={
                         errors.recipientLandmark &&
                         touched.recipientLandmark &&
@@ -150,7 +150,7 @@ function AddressPage() {
                   <GridItem span={6}>
                     <FormGroup
                       label="Pincode"
-                      fieldId="recipient-pincode"
+                      id="recipient-pincode"
                       helpertextinvalid={
                         errors.recipientPincode &&
                         touched.recipientPincode &&
@@ -181,7 +181,7 @@ function AddressPage() {
                   <GridItem span={6}>
                     <FormGroup
                       label="City"
-                      fieldId="recipient-city"
+                      id="recipient-city"
                       helpertextinvalid={
                         errors.recipientCity &&
                         touched.recipientCity &&
@@ -212,7 +212,7 @@ function AddressPage() {
                   <GridItem span={6}>
                     <FormGroup
                       label="Mobile Number"
-                      fieldId="recipient-mobile-number"
+                      id="recipient-mobile-number"
                       helpertextinvalid={
                         errors.recipientMobile &&
                         touched.recipientMobile &&
@@ -243,7 +243,7 @@ function AddressPage() {
                   <GridItem span={6}>
                     <FormGroup
                       label="Alternate Mobile Number"
-                      fieldId="alternate-mobile-number"
+                      id="alternate-mobile-number"
                       helpertextinvalid={
                         errors.recipientAlternateMobile &&
                         touched.recipientAlternateMobile &&
@@ -275,7 +275,7 @@ function AddressPage() {
                   </GridItem>
 
                   <GridItem span={12}>
-                    <FormGroup label="Address Type" fieldId="address-type">
+                    <FormGroup label="Address Type" id="address-type">
                       <div className="address-type-container">
                         <ActivePill content="Home" isActive={true} />
                         <ActivePill content="Work" isActive={false} />
@@ -319,7 +319,7 @@ function AddressPage() {
       </div>
       <div className="cart-recommended-section">
         <h2>Recommended Toys</h2>
-        <Products products={products?.results?.slice(7, 11)} />
+        <Products products={products?.slice(7, 11)} />
       </div>
     </div>
   );

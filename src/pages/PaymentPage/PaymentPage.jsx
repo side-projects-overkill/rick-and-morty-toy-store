@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Form, FormGroup, TextInput, Button } from "@patternfly/react-core";
 import { Formik, ErrorMessage } from "formik";
-import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Grid, GridItem } from "@patternfly/react-core";
 import CreditCardImage from "../../assets/images/credit-card-image.png";
@@ -10,12 +9,14 @@ import ProgressBar from "../../components/progressbar/ProgressBar";
 import ConfirmedDetails from "./ConfirmedDetails";
 import CustomerInfo from "../../components/customerInfo/CustomerInfo";
 import "./PaymentPage.scss";
+import PriceDetails from "../../components/priceDetails/PriceDetails";
+import { useCartContext } from "../../contexts/CartContext";
 
 function PaymentPage() {
   const [price, setPrice] = useState();
   const navigate = useNavigate();
 
-  const { cartItems } = useSelector((state) => state.cart);
+  const { cartItems } = useCartContext();
 
   const totalAmount = () => {
     let total = 0;

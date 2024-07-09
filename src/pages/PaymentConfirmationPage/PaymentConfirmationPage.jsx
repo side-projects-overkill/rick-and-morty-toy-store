@@ -1,8 +1,14 @@
 import "./PaymentConfirmationPage.scss";
 import { Button } from "@patternfly/react-core";
 import { useNavigate } from "react-router-dom";
+import { useCartContext } from "../../contexts/CartContext";
+import { useEffect } from "react";
 
 function PaymentConfirmationPage() {
+  const {setCartItems} = useCartContext();
+  useEffect(()=>{
+    setCartItems([]);
+  },[setCartItems])
   const navigate = useNavigate();
   return (
     <div className="order-comfirm-main-continaer">
