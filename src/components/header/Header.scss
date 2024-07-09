@@ -15,6 +15,7 @@
     font-weight: 600;
     font-style: normal;
     font-size: 50px;
+    cursor: pointer;
     background: linear-gradient(90deg, #b8263d 0%, #feb600 70%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -41,6 +42,7 @@
       align-items: center;
       background-color: #fff;
       border: none;
+      margin-right: 10px;
 
       .list-para {
         margin-top: 4px;

@@ -18,10 +18,12 @@ function Home() {
           <InfoSlider products={products?.slice(0, 4)} />
           <CategorySlider products={products?.slice(4, 8)} />
           <div>
-            <Text component={TextVariants.h1}>Want delivery today?</Text>
+            <Text component={TextVariants.h1} className="delivery-heading">
+              Want delivery today?
+            </Text>
             <div className="delivery-container">
-              <ActivePill content="All" />
-              {products?.slice(0, 10).map((product) => {
+              <ActivePill content="All" isActive={true} />
+              {products?.results?.slice(0, 9).map((product) => {
                 return (
                   <InactivePill content={product?.name} key={product?.id} />
                 );
