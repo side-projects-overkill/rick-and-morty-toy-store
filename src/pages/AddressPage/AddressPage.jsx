@@ -3,7 +3,6 @@ import {
   Form,
   FormGroup,
   TextInput,
-  TextArea,
   ActionGroup,
   Button,
   Grid,
@@ -101,7 +100,7 @@ function AddressPage() {
                           : "default"
                       }
                     >
-                      <TextArea
+                      <TextInput
                         id="recipient-address"
                         name="recipientAddress"
                         className="recipient-field"

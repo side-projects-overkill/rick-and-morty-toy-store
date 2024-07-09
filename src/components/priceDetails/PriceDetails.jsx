@@ -1,5 +1,6 @@
 import "./PriceDetails.scss";
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import {
   Button,
   Text,
@@ -37,7 +38,6 @@ function PriceDetails({ btnvalue }) {
         return "";
     }
   };
-
   const route = getRoute(btnvalue);
 
   useEffect(() => {
@@ -85,17 +85,41 @@ function PriceDetails({ btnvalue }) {
           <GridItem span={2}>
             <Text component={TextVariants.h2}>₿ {price}</Text>
           </GridItem>
-          <GridItem span={12}>
-            <Link to={route}>
-              <Button
-                variant="primary"
-                ouiaId="Primary"
-                className="checkout-btn"
-              >
-                Proceed to {btnvalue}
-              </Button>
-            </Link>
-          </GridItem>
+          {!isPaymentRoute ? (
+            <GridItem span={12}>
+              <Link to={route}>
+                <Button
+                  variant="primary"
+                  ouiaId="Primary"
+                  className="checkout-btn"
+                >
+                  Proceed to {btnvalue}
+                </Button>
+              </Link>
+            </GridItem>
+          ) : (
+            <div>
+              <GridItem span={12}>
+                <div className="price-details-bottom-container">
+                  <p className="details-bottom-heading">
+                    SENDER DETAILS{" "}
+                    <span className="details-bottom-span">(Change)</span>
+                  </p>
+                  <p>Sarah</p>
+                  <p>1234567898</p>
+                </div>
+              </GridItem>
+              <GridItem span={12}>
+                <div className="price-details-bottom-container">
+                  <p className="details-bottom-heading">
+                    DELIVERY TIME{" "}
+                    <span className="details-bottom-span"> (Change) </span>
+                  </p>
+                  <p>10/07/2024 11:15 AM</p>
+                </div>
+              </GridItem>
+            </div>
+          )}
         </Grid>
       </div>
     </div>

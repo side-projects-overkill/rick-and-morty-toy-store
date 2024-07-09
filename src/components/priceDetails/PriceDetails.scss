@@ -46,5 +46,17 @@
       font-weight: 600;
       font-size: 18px;
     }
+
+    .price-details-bottom-container {
+      margin-bottom: 10px;
+      .details-bottom-heading {
+        font-weight: 600;
+
+        .details-bottom-span {
+          color: #0066cc;
+          cursor: pointer;
+        }
+      }
+    }
   }
 }

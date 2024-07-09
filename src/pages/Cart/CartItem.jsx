@@ -1,33 +1,25 @@
 import { TrashIcon } from "@patternfly/react-icons";
 import { Icon, Flex, FlexItem } from "@patternfly/react-core";
+import { useCartContext } from "../../contexts/CartContext";
 import "./CartItem.scss";
 
-import {
-  addToCart,
-  removeFromCart,
-} from "../../components/redux_api/actions/cartActions";
-import { useDispatch } from "react-redux";
-
 function CartItem({ item }) {
-  const dispatch = useDispatch();
-
+  const { addToCart, removeFromCart } = useCartContext();
   const addToItemCart = () => {
-    dispatch(addToCart(item.id, 1));
+    addToCart(item.id, item, 1);
   };
-
   const reduceFromItemCart = () => {
     if (item.quantity <= 1) {
-      dispatch(removeFromCart(item.id));
+      removeFromCart(item.id);
     } else {
-      dispatch(addToCart(item.id, -1));
+      addToCart(item.id, item, -1);
     }
   };
 
   const removeFromItemCart = () => {
-    dispatch(removeFromCart(item.id));
+    removeFromCart(item.id);
   };
   return (
-    <>
       <Flex className="cartitem-main-container">
         <Flex
           className="cartitem-left-container"
@@ -46,7 +38,6 @@ function CartItem({ item }) {
           <FlexItem className="cartitem-left-subcontainer">
             <h2>{item.name}</h2>
             <p>status: {item.status}</p>
-
             <p>
               Quantity:
               <button
@@ -93,7 +84,6 @@ function CartItem({ item }) {
           </FlexItem>
         </Flex>
       </Flex>
-    </>
   );
 }
 

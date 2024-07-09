@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import {
   Text,
   TextVariants,
@@ -5,24 +6,19 @@ import {
   Grid,
   GridItem,
 } from "@patternfly/react-core";
+import { useCartContext } from "../../contexts/CartContext";
 import "./ProductView.scss";
-
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { addToCart } from "../redux_api/actions/cartActions";
 
 function ProductView({ product }) {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const { id } = product;
-
+  const { addToCart } = useCartContext();
   const addToItemCart = () => {
-    dispatch(addToCart(id, 1));
+    addToCart(id, product, 1);
     navigate("/cart");
   };
-
   const buyNow = () => {
-    dispatch(addToCart(id, 1));
+    addToCart(id, product, 1);
     navigate("/address");
   };
 

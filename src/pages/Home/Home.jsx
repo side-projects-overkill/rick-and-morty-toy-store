@@ -1,27 +1,23 @@
-import React, { useEffect } from "react";
 import "./Home.scss";
 import { Text, TextVariants } from "@patternfly/react-core";
-import { useProductContext } from "../../contexts/ProductContext";
 import InfoSlider from "../../components/Infoslider/InfoSlider";
 import Products from "../../components/Products/Products";
 import CategorySlider from "../../components/categoryslider/CategorySlider";
 import ActivePill from "../../components/activePill/ActivePill";
+import { useProductContext } from "../../contexts/ProductContext";
 
 function Home() {
-  const { products } = useSelector((state) => state.getProducts);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getProducts());
-  }, [dispatch]);
+  const { products } = useProductContext();
   return (
     <div>
       {products && (
         <div className="home-main-container">
-          <InfoSlider products={products?.results?.slice(0, 4)} />
-          <CategorySlider products={products?.results?.slice(4, 8)} />
+          <InfoSlider products={products?.slice(0, 4)} />
+          <CategorySlider products={products?.slice(4, 8)} />
           <div>
-            <Text component={TextVariants.h1}>Want delivery today?</Text>
+            <Text component={TextVariants.h1} className="delivery-heading">
+              Want delivery today?
+            </Text>
             <div className="delivery-container">
               <ActivePill content="All" isActive={true} />
               {products?.slice(0, 9).map((product) => {
@@ -31,8 +27,8 @@ function Home() {
               })}
             </div>
           </div>
-          <Products products={products?.results?.slice(8, 12)} />
-          <Products products={products?.results?.slice(15, 19)} />
+          <Products products={products?.slice(8, 12)} />
+          <Products products={products?.slice(15, 19)} />
         </div>
       )}
     </div>

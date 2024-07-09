@@ -4,13 +4,11 @@
   padding-left: 30px;
   border-radius: 3px;
 }
-
 .cart-location-icon {
   position: relative;
   top: 5px;
   left: 25px;
 }
-
 .checkButton {
   padding: 5px 15px 5px 15px;
   background-color: transparent;
@@ -21,15 +19,12 @@
   margin-left: 3%;
   border-radius: 3px;
 }
-
 .cart-item-price-contianer {
   display: flex;
   justify-content: space-between;
-
   .cart-bottom-right-container {
     display: flex;
     flex-direction: column;
-
     .shopping-btn {
       background-color: #ff9f00;
       margin-top: 15px;
@@ -41,7 +36,6 @@
     }
   }
 }
-
 .cart-recommended-section {
   margin-top: 50px;
 }

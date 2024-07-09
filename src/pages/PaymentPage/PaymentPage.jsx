@@ -6,7 +6,6 @@ import { Grid, GridItem } from "@patternfly/react-core";
 import CreditCardImage from "../../assets/images/credit-card-image.png";
 import PaymentFormSchema from "./PaymentFormSchema";
 import ProgressBar from "../../components/progressbar/ProgressBar";
-import ConfirmedDetails from "./ConfirmedDetails";
 import CustomerInfo from "../../components/customerInfo/CustomerInfo";
 import "./PaymentPage.scss";
 import PriceDetails from "../../components/priceDetails/PriceDetails";
@@ -240,7 +239,7 @@ function PaymentPage() {
         </div>
         <div className="payment-bottom-right-container">
           <CustomerInfo />
-          <ConfirmedDetails />
+          <PriceDetails/>
         </div>
       </div>
     </div>

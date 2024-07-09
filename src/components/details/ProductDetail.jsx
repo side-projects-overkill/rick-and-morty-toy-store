@@ -1,36 +1,24 @@
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { Text, TextVariants } from "@patternfly/react-core";
 import ProductView from "./ProductView";
 import Products from "../Products/Products";
-
+import { useProductContext } from "../../contexts/ProductContext";
 import "./ProductDetail.scss";
-import { Text, TextVariants } from "@patternfly/react-core";
-
-import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-
-import {
-  getProductDetails,
-  getProducts,
-} from "../redux_api/actions/productActions";
-import { useEffect } from "react";
 
 function ProductDetail() {
   const { id } = useParams();
-  const dispatch = useDispatch();
-
-  const { product } = useSelector((state) => state.getProductDetails);
-  const { products } = useSelector((state) => state.getProducts);
-
+  const { product, setProduct, products } = useProductContext();
   useEffect(() => {
-    if (product && id !== product.id) {
-      dispatch(getProductDetails(id));
-      dispatch(getProducts());
-    }
-  }, [dispatch, id, product]);
+    const currentProduct = products?.find(
+      (product) => product.id.toString() === id
+    );
+    setProduct(currentProduct);
+  }, [products, setProduct, id]);
 
   return (
     <div>
-      <ProductView product={product} />
-
+      {product && <ProductView product={product} />}
       <div className="product-features">
         <Text component={TextVariants.h2}>Features & Details</Text>
         <Text component={TextVariants.p}>
@@ -44,7 +32,7 @@ function ProductDetail() {
         <strong style={{ color: "#0066CC" }}>Order Now!</strong>
 
         <Text component={TextVariants.p}>
-          <strong>Toy Species:</strong> {product.species}
+          <strong>Toy Species:</strong> {product?.species}
         </Text>
         <Text component={TextVariants.p}>
           <strong>Color Available:</strong> Red, Green, Yellow
@@ -53,7 +41,7 @@ function ProductDetail() {
           <strong>Size Available:</strong> Small, Medium, Large
         </Text>
         <Text component={TextVariants.p}>
-          <strong>Gender Of Toy:</strong> {product.gender}
+          <strong>Gender Of Toy:</strong> {product?.gender}
         </Text>
 
         <Text component={TextVariants.h3}>Delivery Details</Text>
@@ -68,12 +56,11 @@ function ProductDetail() {
         <Text component={TextVariants.p}>Don't try to eat</Text>
         <Text component={TextVariants.p}>Keep it away from animals</Text>
       </div>
-
       <div>
         <Text component={TextVariants.h2} className="recomended-heading">
           Recommended Toys
         </Text>
-        <Products products={products?.results?.slice(13, 17)} />
+        <Products products={products?.slice(13, 17)} />
       </div>
     </div>
   );
