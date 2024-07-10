@@ -1,0 +1,22 @@
+.progress-bar-container {
+  width: 100%;
+  height: 160px;
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+
+  .pf-v5-c-progress-stepper__step.pf-m-success {
+    --pf-v5-c-progress-stepper__step-icon--Color: #b8263d;
+  }
+
+  .pf-v5-c-progress-stepper__step.pf-m-info {
+    --pf-v5-c-progress-stepper__step-icon--Color: #ff9f00;
+  }
+
+
+  @media screen and (max-width: 767px) {
+    width: 50%;
+    height: 250px;
+  }
+}

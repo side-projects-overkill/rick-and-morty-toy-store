@@ -1,0 +1,62 @@
+.price-details-main-container {
+  .price-detials-apply-coupon-contianer {
+    margin-bottom: 20px;
+    height: auto;
+    width: 442px;
+    padding: 9px 0px 9px 19px;
+    display: flex;
+    align-items: center;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+    .apply-coupon-heading {
+      margin-left: 15px;
+      background-color: #fff;
+      border: none;
+      color: #0066cc;
+      padding: 0px;
+    }
+  }
+
+  .price-details-info-container {
+    height: auto;
+    width: 442px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+
+    .add-coupon-text {
+      color: #0066cc;
+      background-color: #fff;
+      border: none;
+      color: #0066cc;
+      padding-left: 15px;
+    }
+
+    .free-text {
+      color: #1c9305;
+    }
+
+    .checkout-btn {
+      align-self: center;
+      background-color: #b8263d;
+      margin-left: 11px;
+      width: 380px;
+      height: 50px;
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    .price-details-bottom-container {
+      margin-bottom: 10px;
+      .details-bottom-heading {
+        font-weight: 600;
+
+        .details-bottom-span {
+          color: #0066cc;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+.cartitem-main-container {
+  margin-top: 20px;
+  width: 870px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  .cartitem-item-image {
+    padding: 20px 0 20px 20px;
+    width: 250px;
+  }
+  .cartitem-left-container {
+    .item-quantity-button {
+      background-color: transparent;
+      border: 1px solid #b8263d;
+      text-align: center;
+      margin: 5px;
+    }
+    .cartitem-left-subcontainer {
+      margin-left: 20px;
+    }
+  }
+  .cartitem-right-container {
+    padding: 18px 18px 18px 0;
+  }
+}
+.pf-v5-l-flex {
+  --pf-v5-l-flex--AlignItems: none;
+}
